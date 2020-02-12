@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.system.SystemAdminDao">
+    <!-- 返回MAP -->
+    <resultMap id="BaseResultMap" type="java.util.Map">
+        <id column="ADMIN_ID" property="adminId"/>
+        <result column="LOGIN_NAME" property="loginName"/>
+        <result column="LOGIN_PASS" property="loginPass"/>
+        <result column="ADMIN_STATE" property="adminState"/>
+        <result column="ADMIN_NAME" property="adminName"/>
+        <result column="ADMIN_CARDNO" property="adminCardno"/>
+        <result column="ADMIN_MOBILE" property="adminMobile"/>
+        <result column="ADMIN_SEX" property="adminSex"/>
+        <result column="ADMIN_BIRTHDAY" property="adminBirthday"/>
+        <result column="ADMIN_EMAIL" property="adminEmail"/>
+        <result column="ADMIN_LOGIN_NUM" property="adminLoginNum"/>
+        <result column="ADMIN_CREATE_DATE" property="adminCreateDate"/>
+        <result column="ADMIN_LOGIN_DATE" property="adminLoginDate"/>
+        <result column="ADMIN_LOGIN_OLDDATE" property="adminLoginOlddate"/>
+        <result column="ADMIN_LOGIN_IP" property="adminLoginIp"/>
+        <result column="ADMIN_LOGIN_OLDIP" property="adminLoginOldip"/>
+        <result column="ROLE_ID" property="roleId"/>
+        <result column="ROLE_NAME" property="roleName"/>
+        <result column="COMPANY" property="company"/>
+        <result column="COMPANY_NAME" property="companyName"/>
+        <result column="ORG_ID" property="orgId"/>
+    </resultMap>
+
+    <!-- 返回ENTITY -->
+    <resultMap id="BaseResultEntity" type="com.sxgokit.rdf.model.domain.system.SystemAdmin">
+        <id column="ADMIN_ID" property="adminId" jdbcType="DECIMAL"/>
+        <result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR"/>
+        <result column="LOGIN_PASS" property="loginPass" jdbcType="VARCHAR"/>
+        <result column="ADMIN_STATE" property="adminState" jdbcType="DECIMAL"/>
+        <result column="ADMIN_NAME" property="adminName" jdbcType="VARCHAR"/>
+        <result column="ADMIN_CARDNO" property="adminCardno" jdbcType="VARCHAR"/>
+        <result column="ADMIN_MOBILE" property="adminMobile" jdbcType="VARCHAR"/>
+        <result column="ADMIN_SEX" property="adminSex" jdbcType="DECIMAL"/>
+        <result column="ADMIN_BIRTHDAY" property="adminBirthday" jdbcType="TIMESTAMP"/>
+        <result column="ADMIN_EMAIL" property="adminEmail" jdbcType="VARCHAR"/>
+        <result column="ADMIN_LOGIN_NUM" property="adminLoginNum" jdbcType="DECIMAL"/>
+        <result column="ADMIN_CREATE_DATE" property="adminCreateDate" jdbcType="TIMESTAMP"/>
+        <result column="ADMIN_LOGIN_DATE" property="adminLoginDate" jdbcType="TIMESTAMP"/>
+        <result column="ADMIN_LOGIN_OLDDATE" property="adminLoginOlddate" jdbcType="TIMESTAMP"/>
+        <result column="ADMIN_LOGIN_IP" property="adminLoginIp" jdbcType="VARCHAR"/>
+        <result column="ADMIN_LOGIN_OLDIP" property="adminLoginOldip" jdbcType="VARCHAR"/>
+        <result column="ROLE_ID" property="roleId" jdbcType="DECIMAL"/>
+        <result column="COMPANY" property="company"/>
+        <result column="COMPANY_NAME" property="companyName"/>
+        <result column="ORG_ID" property="orgId"/>
+        <result column="org_name" property="orgName"/>
+    </resultMap>
+
+    <!-- 查询公共字段 -->
+    <sql id="Base_Column_List">
+		SA.ADMIN_ID, SA.LOGIN_NAME, SA.LOGIN_PASS,
+		SA.ADMIN_STATE, SA.ADMIN_NAME, SA.ADMIN_CARDNO,
+		SA.ADMIN_MOBILE, SA.ADMIN_SEX, SA.ADMIN_BIRTHDAY,
+		SA.ADMIN_EMAIL, SA.ADMIN_LOGIN_NUM, SA.ADMIN_CREATE_DATE,
+		SA.ADMIN_LOGIN_DATE, SA.ADMIN_LOGIN_OLDDATE,
+		SA.ADMIN_LOGIN_IP, SA.ADMIN_LOGIN_OLDIP,SA.COMPANY,SA.COMPANY_NAME,SA.ORG_ID
+	</sql>
+
+    <select id="checkLoginName" resultMap="BaseResultEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM SYSTEM_ADMIN SA WHERE 1=1
+        AND LOGIN_NAME = #{loginName}
+        <if test="user_id != null and user_id != ''">
+            AND ADMIN_ID != #{user_id}
+        </if>
+    </select>
+
+
+    <!-- 查询所有用户信息 -->
+    <select id="findPageList" parameterType="com.sxgokit.rdf.model.domain.system.SystemAdmin" resultMap="BaseResultEntity">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        (SELECT ROLE_NAME FROM SYSTEM_ROLE WHERE ROLE_ID = (SELECT ROLE_ID FROM SYSTEM_ADMIN_ROLE WHERE ADMIN_ID =
+        SA.ADMIN_ID)) AS ROLE_NAME
+        ,so.`org_name`
+        FROM SYSTEM_ADMIN SA
+        LEFT JOIN sys_organization so ON so.org_id = sa.org_id
+        WHERE 1=1
+        <if test="admin.loginName != null and admin.loginName !=''">
+            AND SA.LOGIN_NAME LIKE CONCAT('%',#{admin.loginName,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="admin.adminName != null and admin.adminName != ''">
+            AND SA.ADMIN_NAME LIKE CONCAT('%',#{admin.adminName,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="admin.adminState != null">
+            AND SA.ADMIN_STATE = #{admin.adminState,jdbcType=DECIMAL}
+        </if>
+        <if test="admin.companyName != null and admin.companyName != ''">
+            AND SA.COMPANY_NAME LIKE CONCAT('%',#{admin.companyName},'%')
+        </if>
+        <if test="null != admin.orgId and admin.orgId != ''">
+            AND SA.ORG_ID = #{admin.orgId}
+        </if>
+        <if test="null != admin.company and admin.company != ''">
+            AND SA.COMPANY = #{admin.company}
+        </if>
+        AND SA.LOGIN_NAME != 'admin'
+        ORDER BY SA.ADMIN_CREATE_DATE ASC
+    </select>
+
+    <!-- 根据主键查询用户信息 -->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        ROLE.ROLE_ID
+        FROM SYSTEM_ADMIN SA
+        LEFT JOIN SYSTEM_ADMIN_ROLE ROLE
+        ON SA.ADMIN_ID = ROLE.ADMIN_ID
+        WHERE SA.ADMIN_ID = #{adminId,jdbcType=DECIMAL}
+    </select>
+
+    <!-- 根据主键删除用户信息 真删 -->
+    <delete id="deleteByPrimaryKey" parameterType="Integer">
+        DELETE FROM SYSTEM_ADMIN
+        WHERE ADMIN_ID = #{adminId,jdbcType=DECIMAL}
+    </delete>
+
+    <!-- 添加用户 -->
+    <insert id="insertSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemAdmin">
+        <selectKey resultType="java.lang.Integer" keyProperty="adminId">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO SYSTEM_ADMIN
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="adminId != null">
+                ADMIN_ID,
+            </if>
+            <if test="loginName != null">
+                LOGIN_NAME,
+            </if>
+            <if test="loginPass != null">
+                LOGIN_PASS,
+            </if>
+            <if test="adminState != null">
+                ADMIN_STATE,
+            </if>
+            <if test="adminName != null">
+                ADMIN_NAME,
+            </if>
+            <if test="adminCardno != null">
+                ADMIN_CARDNO,
+            </if>
+            <if test="adminMobile != null">
+                ADMIN_MOBILE,
+            </if>
+            <if test="adminSex != null">
+                ADMIN_SEX,
+            </if>
+            <if test="adminBirthday != null">
+                ADMIN_BIRTHDAY,
+            </if>
+            <if test="adminEmail != null">
+                ADMIN_EMAIL,
+            </if>
+            <if test="adminLoginNum != null">
+                ADMIN_LOGIN_NUM,
+            </if>
+            <if test="adminCreateDate != null">
+                ADMIN_CREATE_DATE,
+            </if>
+            <if test="adminLoginDate != null">
+                ADMIN_LOGIN_DATE,
+            </if>
+            <if test="adminLoginOlddate != null">
+                ADMIN_LOGIN_OLDDATE,
+            </if>
+            <if test="adminLoginIp != null">
+                ADMIN_LOGIN_IP,
+            </if>
+            <if test="adminLoginOldip != null">
+                ADMIN_LOGIN_OLDIP,
+            </if>
+            <if test="company !=null and company != ''">
+                COMPANY,
+            </if>
+            <if test="companyName != null and companyName != ''">
+                COMPANY_NAME
+            </if>
+            <if test="orgId != null and orgId != ''">
+                ORG_ID
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="adminId != null">
+                #{adminId,jdbcType=DECIMAL},
+            </if>
+            <if test="loginName != null">
+                #{loginName,jdbcType=VARCHAR},
+            </if>
+            <if test="loginPass != null">
+                #{loginPass,jdbcType=VARCHAR},
+            </if>
+            <if test="adminState != null">
+                #{adminState,jdbcType=DECIMAL},
+            </if>
+            <if test="adminName != null">
+                #{adminName,jdbcType=VARCHAR},
+            </if>
+            <if test="adminCardno != null">
+                #{adminCardno,jdbcType=VARCHAR},
+            </if>
+            <if test="adminMobile != null">
+                #{adminMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="adminSex != null">
+                #{adminSex,jdbcType=DECIMAL},
+            </if>
+            <if test="adminBirthday != null">
+                #{adminBirthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminEmail != null">
+                #{adminEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="adminLoginNum != null">
+                #{adminLoginNum,jdbcType=DECIMAL},
+            </if>
+            <if test="adminCreateDate != null">
+                #{adminCreateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminLoginDate != null">
+                #{adminLoginDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminLoginOlddate != null">
+                #{adminLoginOlddate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminLoginIp != null">
+                #{adminLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="adminLoginOldip != null">
+                #{adminLoginOldip,jdbcType=VARCHAR},
+            </if>
+            <if test="company !=null and company != ''">
+                #{company,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null and companyName != ''">
+                #{companyName,jdbcType=VARCHAR}
+            </if>
+            <if test="orgId != null and orgId != ''">
+                #{orgId,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改用户信息 -->
+    <update id="updateSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemAdmin">
+        UPDATE SYSTEM_ADMIN
+        <set>
+            <if test="loginName != null">
+                LOGIN_NAME = #{loginName,jdbcType=VARCHAR},
+            </if>
+            <if test="loginPass != null">
+                LOGIN_PASS = #{loginPass,jdbcType=VARCHAR},
+            </if>
+            <if test="adminState != null">
+                ADMIN_STATE = #{adminState,jdbcType=DECIMAL},
+            </if>
+            <if test="adminName != null">
+                ADMIN_NAME = #{adminName,jdbcType=VARCHAR},
+            </if>
+            <if test="adminCardno != null">
+                ADMIN_CARDNO = #{adminCardno,jdbcType=VARCHAR},
+            </if>
+            <if test="adminMobile != null">
+                ADMIN_MOBILE = #{adminMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="adminSex != null">
+                ADMIN_SEX = #{adminSex,jdbcType=DECIMAL},
+            </if>
+            <if test="adminBirthday != null">
+                ADMIN_BIRTHDAY = #{adminBirthday,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminEmail != null">
+                ADMIN_EMAIL = #{adminEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="adminLoginNum != null">
+                ADMIN_LOGIN_NUM = #{adminLoginNum,jdbcType=DECIMAL},
+            </if>
+            <if test="adminCreateDate != null">
+                ADMIN_CREATE_DATE =
+                #{adminCreateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminLoginDate != null">
+                ADMIN_LOGIN_DATE = #{adminLoginDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminLoginOlddate != null">
+                ADMIN_LOGIN_OLDDATE =
+                #{adminLoginOlddate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="adminLoginIp != null">
+                ADMIN_LOGIN_IP = #{adminLoginIp,jdbcType=VARCHAR},
+            </if>
+            <if test="adminLoginOldip != null">
+                ADMIN_LOGIN_OLDIP = #{adminLoginOldip,jdbcType=VARCHAR},
+            </if>
+            <if test="company !=null and company != ''">
+                COMPANY=#{company,jdbcType=VARCHAR},
+            </if>
+            <if test="companyName != null and company != ''">
+                COMPANY_NAME=#{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="orgId != null and orgId != ''">
+                ORG_ID=#{orgId,jdbcType=VARCHAR},
+            </if>
+
+
+        </set>
+        WHERE ADMIN_ID = #{adminId,jdbcType=DECIMAL}
+    </update>
+
+    <!-- 用户登录 -->
+    <select id="login" parameterType="com.sxgokit.rdf.model.domain.system.SystemAdmin" resultMap="BaseResultEntity">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        ROLE.ROLE_ID
+        FROM
+        SYSTEM_ADMIN SA
+        LEFT JOIN
+        SYSTEM_ADMIN_ROLE ROLE
+        ON SA.ADMIN_ID = ROLE.ADMIN_ID
+        WHERE SA.LOGIN_NAME = #{loginName,jdbcType=VARCHAR}
+        AND SA.LOGIN_PASS = #{loginPass,jdbcType=VARCHAR}
+    </select>
+    <select id="getInfoById" resultMap="BaseResultEntity">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        ROLE.ROLE_ID
+        FROM
+        SYSTEM_ADMIN SA
+        LEFT JOIN
+        SYSTEM_ADMIN_ROLE ROLE
+        ON SA.ADMIN_ID = ROLE.ADMIN_ID
+        WHERE SA.ADMIN_ID = #{id}
+    </select>
+    <select id="findList" parameterType="com.sxgokit.rdf.model.domain.system.SystemAdmin" resultMap="BaseResultEntity">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM SYSTEM_ADMIN SA
+        WHERE 1=1
+        <if test="loginName != null and loginName !=''">
+            AND SA.LOGIN_NAME LIKE CONCAT('%',#{loginName,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="adminName != null and adminName != ''">
+            AND SA.ADMIN_NAME LIKE CONCAT('%',#{adminName,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="adminState != null">
+            AND SA.ADMIN_STATE = #{adminState,jdbcType=DECIMAL}
+        </if>
+        <if test="companyName != null and companyName != ''">
+            AND SA.COMPANY_NAME LIKE CONCAT('%',#{companyName},'%')
+        </if>
+        <if test="null != orgId and orgId != ''">
+            AND SA.ORG_ID = #{orgId}
+        </if>
+        <if test="null != company and company != ''">
+            AND SA.COMPANY = #{company}
+        </if>
+        ORDER BY SA.ADMIN_CREATE_DATE ASC
+    </select>
+
+</mapper>

@@ -1,0 +1,11 @@
+@charset "utf-8";
+/*********************************************
+* CSS Document for GOK 
+* Start Time 2016-01-25
+* Author : shuli
+* Contect : shuli@sxgok.com
+**********************************************/
+/*引入网站整体默认样式*/
+@import url(default.css);
+/*引入重置样式*/
+@import url(overwritten.css);

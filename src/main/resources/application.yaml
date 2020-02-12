@@ -1,0 +1,64 @@
+spring:
+  http:
+    encoding.charset: UTF-8
+    encoding.enable: true
+    encoding.force: true
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /static/**
+  datasource:
+    test-on-borrow: true
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/rdf?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=GMT%2b8
+    username: root
+    password: Eclipse$2019
+    filters: stat,wall,log4j     #druid监控配置
+    dbcp2:
+      min-idle: 5         #数据库连接池的最小维持连接数
+      initial-size: 5     #初始化提供的连接数
+      max-total: 600          #最大的连接数
+      max-wait-millis: 60000        #等待连接获取的最大超时时间
+  # 设置控制台启动时的ansi字符输出,表示可配置彩色输出
+  output:
+    ansi:
+      enabled: always
+  # redis配置
+  redis:
+    database: 0 #redis数据库索引
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 200 #连接池最大连接数
+        max-wait: -1  #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 10  #连接池中的最大空闲连接
+        min-idle: 0 #连接池中的最小空闲连接
+    timeout: 1000 #超时
+driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  typeAliasesPackage: com.sxgokit.rdf.model.domain
+  configLocation: classpath:config/mybatis-config.xml
+  mapperLocations: classpath:mapper/*/*.xml
+# 打印sql
+logging:
+  level:
+    com.sxgokit.rdf.mapper: DEBUG
+# 框架
+rdf:
+  # 项目启动加载系统配置表数据到redis的开关,StartupConfig
+  loadConfigWhenStart: true
+  # sysConfig刷新开关
+  refreshConfigSwitch: true
+  # sysDict刷新开关
+  refreshDictSwitch: true
+  server-session-timout: 86400
+## APP
+app:
+  # token存活时间
+  token-alive-time: 7200
+  # 是否打开鉴权开关(开发)
+  auth-enabled: true
+

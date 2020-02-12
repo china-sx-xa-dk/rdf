@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.system.SystemPermissionDao">
+<resultMap id="BaseResultMap" type="java.util.Map">
+		<id column="PERMISSION_ID" property="permissionId" />
+		<result column="PERMISSION_NAME" property="permissionName" />
+		<result column="PERMISSION_PARENT_ID" property="permissionParentId" />
+		<result column="PERMISSION_TYPE" property="permissionType" />
+		<result column="PERMISSION_VALUE" property="permissionValue" />
+		<result column="PERMISSION_SORT" property="permissionSort" />
+		<result column="is_show" property="isShow" />
+		<result column="parentIds" property="parentIds" />
+	</resultMap>
+
+	<resultMap id="SystemPermission" type="com.sxgokit.rdf.model.domain.system.SystemPermission">
+		<result column="PERMISSION_ID" property="permissionId"/>
+		<result column="PERMISSION_NAME" property="permissionName" />
+		<result column="PERMISSION_PARENT_ID" property="permissionParentId" />
+		<result column="PERMISSION_TYPE" property="permissionType" />
+		<result column="PERMISSION_VALUE" property="permissionValue" />
+		<result column="PERMISSION_SORT" property="permissionSort" />
+		<result column="is_show" property="isShow" />
+		<result column="parentIds" property="parentIds" />
+	</resultMap>
+
+	<resultMap id="BaseResultTree" type="com.sxgokit.rdf.model.domain.system.SystemTreeImpl">
+		<id property="id" column="PERMISSION_ID" />
+		<result property="name" column="PERMISSION_NAME" />
+		<result property="parentId" column="PERMISSION_PARENT_ID" />
+		<result property="typeCode" column="PERMISSION_TYPE" />
+		<collection property="children" column="PERMISSION_ID"
+                    ofType="com.sxgokit.rdf.model.domain.system.SystemTreeImpl" javaType="java.util.ArrayList" select="findTree" />
+	</resultMap>
+	
+	<resultMap id="AdminRoleMap" type="java.util.Map">
+		<id column="PERMISSION_FID" property="permissionFid"/>
+		<result column="PERMISSION_FNAME" property="permissionFname"/>
+		<collection property="perList" javaType="java.util.List" resultMap="BaseResultMap" />
+	</resultMap>
+
+	<!-- 查询公共字段 -->
+	<sql id="Base_Column_List">
+		PERMISSION_ID, PERMISSION_NAME, PERMISSION_PARENT_ID,
+		PERMISSION_TYPE,PERMISSION_VALUE,PERMISSION_SORT
+	</sql>
+
+	<!-- 查询所有角色信息 -->
+	<select id="getPermissionList" resultMap="BaseResultTree">
+		SELECT
+		PERMISSION_ID,PERMISSION_NAME,PERMISSION_PARENT_ID, PERMISSION_TYPE
+		FROM SYSTEM_PERMISSION
+		WHERE PERMISSION_PARENT_ID = 0
+		ORDER BY PERMISSION_SORT
+	</select>
+
+	<!-- 根据父节点查询子节点 -->
+	<select id="findTree" resultMap="BaseResultTree" parameterType="java.lang.Integer">
+		SELECT
+		PERMISSION_ID,PERMISSION_NAME,PERMISSION_PARENT_ID, PERMISSION_TYPE
+		FROM SYSTEM_PERMISSION
+		WHERE PERMISSION_PARENT_ID = #{permissionId,jdbcType=DECIMAL}
+		and is_show = 1
+		ORDER BY PERMISSION_SORT
+	</select>
+
+	<!-- 根据主键查询 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="Integer">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM SYSTEM_PERMISSION
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+	</select>
+
+	<!-- 根据主键删除 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM SYSTEM_PERMISSION
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+		OR parentIds LIKE CONCAT('%,', #{permissionId,jdbcType=DECIMAL}, ',%')
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insertSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemPermission">
+		INSERT INTO SYSTEM_PERMISSION
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="permissionId != null">
+				PERMISSION_ID,
+			</if>
+			<if test="permissionName != null">
+				PERMISSION_NAME,
+			</if>
+			<if test="permissionParentId != null">
+				PERMISSION_PARENT_ID,
+			</if>
+			<if test="permissionType != null">
+				PERMISSION_TYPE,
+			</if>
+			<if test="permissionValue != null">
+				PERMISSION_VALUE,
+			</if>
+			<if test="permissionSort != null">
+				PERMISSION_SORT,
+			</if>
+			<if test="isShow != null">
+				is_show,
+			</if>
+			<if test="parentIds != null">
+				parentIds,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="permissionId != null">
+				#{permissionId,jdbcType=DECIMAL},
+			</if>
+			<if test="permissionName != null">
+				#{permissionName,jdbcType=VARCHAR},
+			</if>
+			<if test="permissionParentId != null">
+				#{permissionParentId,jdbcType=DECIMAL},
+			</if>
+			<if test="permissionType != null">
+				#{permissionType,jdbcType=DECIMAL},
+			</if>
+			<if test="permissionValue != null">
+				#{permissionValue,jdbcType=VARCHAR},
+			</if>
+			<if test="permissionSort != null">
+				#{permissionSort,jdbcType=DECIMAL},
+			</if>
+			<if test="isShow != null">
+				#{isShow,jdbcType=DECIMAL},
+			</if>
+			<if test="parentIds != null">
+				#{parentIds,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	
+	<!-- 修改-->
+	<update id="updateSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemPermission">
+		UPDATE SYSTEM_PERMISSION
+		<set>
+			<if test="permissionName != null">
+				PERMISSION_NAME = #{permissionName,jdbcType=VARCHAR},
+			</if>
+			<if test="permissionParentId != null">
+				PERMISSION_PARENT_ID = #{permissionParentId,jdbcType=DECIMAL},
+			</if>
+			<if test="permissionType != null">
+				PERMISSION_TYPE = #{permissionType,jdbcType=DECIMAL},
+			</if>
+			<if test="permissionValue != null">
+				PERMISSION_VALUE = #{permissionValue,jdbcType=VARCHAR},
+			</if>
+			<if test="permissionSort != null">
+				PERMISSION_SORT = #{permissionSort,jdbcType=DECIMAL},
+			</if>
+			<if test="isShow != null">
+				is_show = #{isShow,jdbcType=DECIMAL},
+			</if>
+			<if test="parentIds != null">
+				parentIds = #{parentIds,jdbcType=VARCHAR},
+			</if>
+		</set>
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+	</update>
+
+	<!-- 根据角色ID查询用户权限 -->	
+	<select id="getUserPmsList" resultMap="AdminRoleMap" parameterType="java.lang.Integer">
+		SELECT
+	F.PERMISSION_NAME AS PERMISSION_FNAME,
+	F.PERMISSION_SORT AS F_SORT,
+	SP.PERMISSION_PARENT_ID AS PERMISSION_FID,
+	SP.PERMISSION_ID AS PERMISSION_ID,
+	SP.PERMISSION_NAME AS PERMISSION_NAME,
+	SP.PERMISSION_VALUE AS PERMISSION_VALUE,
+	SP.PERMISSION_SORT AS PERMISSION_SORT,
+	SP.is_show AS isShow,
+	SP.parentIds AS parentIds
+FROM
+	SYSTEM_PERMISSION SP
+	LEFT JOIN (
+	SELECT
+		SP.PERMISSION_ID,
+		SP.PERMISSION_NAME,
+		SP.PERMISSION_SORT
+	FROM
+		SYSTEM_PERMISSION SP
+		LEFT JOIN SYSTEM_ROLE_PERMISSION SRP ON SP.PERMISSION_ID = SRP.PERMISSION_ID
+		LEFT JOIN SYSTEM_ADMIN_ROLE SUR ON SUR.ROLE_ID = SRP.ROLE_ID
+	WHERE
+		SUR.ADMIN_ID = #{adminId}
+		AND SP.PERMISSION_PARENT_ID = 1
+	) F ON SP.PERMISSION_PARENT_ID = F.PERMISSION_ID
+	LEFT JOIN SYSTEM_ROLE_PERMISSION SRP ON SP.PERMISSION_ID = SRP.PERMISSION_ID
+	LEFT JOIN SYSTEM_ADMIN_ROLE SUR1 ON SUR1.ROLE_ID = SRP.ROLE_ID
+	LEFT JOIN SYSTEM_ADMIN SU ON SU.ADMIN_ID = SUR1.ADMIN_ID
+WHERE
+	SUR1.ADMIN_ID = #{adminId}
+	and SP.is_show = 1
+	AND SP.PERMISSION_PARENT_ID != 1
+ORDER BY
+	F_SORT ,PERMISSION_SORT ASC
+	</select>
+	
+	<!-- 根据父节点查询子节点 -->
+	<!--<select id="findChild" resultMap="AdminRoleMap" parameterType="java.lang.Integer">-->
+		<!--SELECT-->
+		<!--<include refid="Base_Column_List"/>-->
+		<!--FROM-->
+		<!--SYSTEM_PERMISSION-->
+		<!--WHERE-->
+		<!--PERMISSION_PARENT_ID = #{PERMISSION_ID}-->
+		<!--ORDER BY PERMISSION_SORT-->
+	<!--</select>-->
+
+
+	<select id="findList" resultMap="SystemPermission" parameterType="com.sxgokit.rdf.model.domain.system.SystemPermission">
+	SELECT
+		SP.*,SP.PERMISSION_PARENT_ID AS "parent.permissionId",p.PERMISSION_NAME AS "parent.permissionName"
+	FROM
+		SYSTEM_PERMISSION SP
+		LEFT JOIN SYSTEM_ROLE_PERMISSION SRP ON SP.PERMISSION_ID = SRP.PERMISSION_ID
+		LEFT JOIN SYSTEM_ADMIN_ROLE SUR ON SUR.ROLE_ID = SRP.ROLE_ID
+		LEFT JOIN SYSTEM_PERMISSION p ON p.PERMISSION_ID = SP.PERMISSION_PARENT_ID
+		<if test="userId != null">
+			WHERE SUR.ADMIN_ID = #{userId}
+		</if>
+		GROUP BY SP.PERMISSION_ID
+		ORDER BY SP.PERMISSION_SORT
+	</select>
+	<select id="findById" resultType="com.sxgokit.rdf.model.domain.system.SystemPermission" parameterType="java.lang.Integer">
+		SELECT
+		SP.*,SP.PERMISSION_PARENT_ID AS "parent.permissionId",p.PERMISSION_NAME AS "parent.permissionName"
+	FROM
+		SYSTEM_PERMISSION SP
+		LEFT JOIN SYSTEM_ROLE_PERMISSION SRP ON SP.PERMISSION_ID = SRP.PERMISSION_ID
+		LEFT JOIN SYSTEM_ADMIN_ROLE SUR ON SUR.ROLE_ID = SRP.ROLE_ID
+		LEFT JOIN SYSTEM_PERMISSION p ON p.PERMISSION_ID = SP.PERMISSION_PARENT_ID
+		WHERE SP.PERMISSION_ID = #{permissionId}
+		GROUP BY SP.PERMISSION_ID
+	</select>
+</mapper>

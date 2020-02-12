@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxgokit.rdf.mapper.system.SysLogOperateDao">
+
+    <resultMap id="BaseResultMap" type="com.sxgokit.rdf.model.vo.system.SysLogOperateVo" >
+        <result column="log_id" property="logId" />
+        <result column="user_id" property="userId" />
+        <result column="community_id" property="communityId" />
+        <result column="func_id" property="funcId" />
+        <result column="func_sys_name" property="funcSysName" />
+        <result column="func_name" property="funcName" />
+        <result column="page_url" property="pageUrl" />
+        <result column="operate_ip" property="operateIp" />
+        <result column="operate_time" property="operateTime" />
+        <result column="operate_desc" property="operateDesc" />
+        <result column="product_id" property="productId" />
+        <result column="product_name" property="productName" />
+        <result column="visit_type" property="visitType" />
+        <result column="shop_id" property="shopId" />
+        <result column="shop_name" property="shopName" />
+        <result column="phone" property="phone" />
+        <result column="remark" property="remark" />
+
+        <result column="LOGIN_NAME" property="loginName" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                `log_id`,
+                `user_id`,
+                `community_id`,
+                `func_id`,
+                `func_sys_name`,
+                `func_name`,
+                `page_url`,
+                `operate_ip`,
+                `operate_time`,
+                `operate_desc`,
+                `product_id`,
+                `product_name`,
+                `visit_type`,
+                `shop_id`,
+                `shop_name`,
+                `phone`,
+                `remark`
+    </sql>
+
+    <!-- 查询所有系统日志 -->
+    <select id="findPageList" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.condition.system.SysLogOperateCondition">
+        SELECT <include refid="Base_Column_List" />,sa.LOGIN_NAME
+        FROM sys_log_operate l
+        LEFT JOIN system_admin sa ON l.user_id = sa.ADMIN_ID
+        WHERE 1=1
+        <if test="condition.logId != null and '' !=condition.userId">
+            and l.log_id = #{condition.logId,jdbcType=VARCHAR}
+        </if>
+        <if test="condition.userId != null and '' !=condition.userId">
+            and l.user_id LIKE CONCAT('%', #{condition.userId,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.communityId != null">
+            and l.community_id LIKE CONCAT('%', #{condition.communityId,jdbcType=DECIMAL}, '%')
+        </if>
+        <if test="condition.funcId != null and '' !=condition.funcId">
+            and l.func_id LIKE CONCAT('%', #{condition.funcId,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.funcSysName != null and '' !=condition.funcSysName">
+            and l.func_sys_name LIKE CONCAT('%', #{condition.funcSysName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.funcName != null and '' !=condition.funcName">
+            and l.func_name LIKE CONCAT('%', #{condition.funcName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.pageUrl != null and '' !=condition.pageUrl">
+            and l.page_url LIKE CONCAT('%', #{condition.pageUrl,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.operateIp != null and '' !=condition.operateIp">
+            and l.operate_ip LIKE CONCAT('%', #{condition.operateIp,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.operateTime != null ">
+            and l.operate_time = #{condition.operateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="condition.visitType != null and '' !=condition.visitType">
+            and l.visit_type LIKE CONCAT('%', #{condition.visitType,jdbcType=VARCHAR}, '%')
+        </if>
+        GROUP BY l.log_id
+    </select>
+
+    <!-- 根据主键查询系统日志 -->
+    <select id="selectByLogId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        SELECT <include refid="Base_Column_List" />,sa.LOGIN_NAME
+        FROM sys_log_operate l
+        LEFT JOIN system_admin sa ON l.user_id = sa.ADMIN_ID
+        WHERE l.log_id = #{logId}
+    </select>
+
+    <!-- 新增 -->
+
+    <insert id="insertSysLogOperate"  parameterType="com.sxgokit.rdf.model.domain.system.SysLogOperateModel">
+        INSERT INTO sys_log_operate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != logId'>
+                `log_id`,
+            </if>
+            <if test ='null != userId'>
+                `user_id`,
+            </if>
+            <if test ='null != communityId'>
+                `community_id`,
+            </if>
+            <if test ='null != funcId'>
+                `func_id`,
+            </if>
+            <if test ='null != funcSysName'>
+                `func_sys_name`,
+            </if>
+            <if test ='null != funcName'>
+                `func_name`,
+            </if>
+            <if test ='null != pageUrl'>
+                `page_url`,
+            </if>
+            <if test ='null != operateIp'>
+                `operate_ip`,
+            </if>
+            <if test ='null != operateTime'>
+                `operate_time`,
+            </if>
+            <if test ='null != operateDesc'>
+                `operate_desc`,
+            </if>
+            <if test ='null != productId'>
+                `product_id`,
+            </if>
+            <if test ='null != productName'>
+                `product_name`,
+            </if>
+            <if test ='null != visitType'>
+                `visit_type`,
+            </if>
+            <if test ='null != shopId'>
+                `shop_id`,
+            </if>
+            <if test ='null != shopName'>
+                `shop_name`,
+            </if>
+            <if test ='null != phone'>
+                `phone`,
+            </if>
+            <if test ='null != remark'>
+                `remark`
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != logId'>
+                #{logId},
+            </if>
+            <if test ='null != userId'>
+                #{userId},
+            </if>
+            <if test ='null != communityId'>
+                #{communityId},
+            </if>
+            <if test ='null != funcId'>
+                #{funcId},
+            </if>
+            <if test ='null != funcSysName'>
+                #{funcSysName},
+            </if>
+            <if test ='null != funcName'>
+                #{funcName},
+            </if>
+            <if test ='null != pageUrl'>
+                #{pageUrl},
+            </if>
+            <if test ='null != operateIp'>
+                #{operateIp},
+            </if>
+            <if test ='null != operateTime'>
+                #{operateTime},
+            </if>
+            <if test ='null != operateDesc'>
+                #{operateDesc},
+            </if>
+            <if test ='null != productId'>
+                #{productId},
+            </if>
+            <if test ='null != productName'>
+                #{productName},
+            </if>
+            <if test ='null != visitType'>
+                #{visitType},
+            </if>
+            <if test ='null != shopId'>
+                #{shopId},
+            </if>
+            <if test ='null != shopName'>
+                #{shopName},
+            </if>
+            <if test ='null != phone'>
+                #{phone},
+            </if>
+            <if test ='null != remark'>
+                #{remark}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改系统日志 -->
+    <update id="updateSysLogOperate" parameterType="com.sxgokit.rdf.model.domain.system.SysLogOperateModel">
+        UPDATE sys_log_operate
+        <set>
+            <if test="sysLogOperateModel.logId != null">
+                log_id = #{sysLogOperateModel.logId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.userId != null">
+                user_id = #{sysLogOperateModel.userId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.communityId != null">
+                community_id = #{sysLogOperateModel.communityId,jdbcType=DECIMAL},
+            </if>
+            <if test="sysLogOperateModel.funcId != null">
+                func_id = #{sysLogOperateModel.funcId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.funcSysName != null">
+                func_sys_name = #{sysLogOperateModel.funcSysName,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.funcName != null">
+                func_name = #{sysLogOperateModel.funcName,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.pageUrl != null">
+                page_url = #{sysLogOperateModel.pageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.operateIp != null">
+                operate_ip = #{sysLogOperateModel.operateIp,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.operateTime != null">
+                operate_time = #{sysLogOperateModel.operateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sysLogOperateModel.operateDesc != null">
+                operate_desc = #{sysLogOperateModel.operateDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.productId != null">
+                product_id =  #{sysLogOperateModel.productId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.productName != null">
+                product_name = #{sysLogOperateModel.productName,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.visitType != null">
+                visit_type = #{sysLogOperateModel.visitType,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.shopId != null">
+                shop_id = #{sysLogOperateModel.shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.shopName != null">
+                shop_name = #{sysLogOperateModel.shopName,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.phone !=null ">
+                phone=#{sysLogOperateModel.phone,jdbcType=VARCHAR},
+            </if>
+            <if test="sysLogOperateModel.remark != null ">
+                remark=#{sysLogOperateModel.remark,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE log_id = #{sysLogOperateModel.logId,jdbcType=VARCHAR}
+    </update>
+
+
+
+
+</mapper>

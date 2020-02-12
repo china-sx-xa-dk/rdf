@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxgokit.rdf.mapper.app.AppUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.sxgokit.rdf.model.vo.app.AppUserVo" >
+        <result column="id" property="id" />
+        <result column="head_photo" property="headPhoto" />
+        <result column="login_name" property="loginName" />
+        <result column="login_password" property="loginPassword" />
+        <result column="user_state" property="userState" />
+        <result column="user_name" property="userName" />
+        <result column="user_card_no" property="userCardNo" />
+        <result column="user_mobile" property="userMobile" />
+        <result column="user_sex" property="userSex" />
+        <result column="user_email" property="userEmail" />
+        <result column="user_login_num" property="userLoginNum" />
+        <result column="user_desc" property="userDesc" />
+        <result column="user_last_login_time" property="userLastLoginTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `head_photo`,
+        `login_name`,
+        `login_password`,
+        `user_state`,
+        `user_name`,
+        `user_card_no`,
+        `user_mobile`,
+        `user_sex`,
+        `user_email`,
+        `user_login_num`,
+        `user_desc`,
+        `user_last_login_time`,
+        `create_time`,
+        `update_time`,
+        `del_flag`
+    </sql>
+
+    <select id="findPageList" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.condition.app.AppUserCondition">
+        SELECT t.*
+        FROM app_user t
+        LEFT JOIN app_user_org ao ON ao.user_id = t.id
+        <if test="condition.orgIdNot != null">
+            and ao.org_id = #{condition.orgIdNot,jdbcType=DECIMAL}
+        </if>
+        LEFT JOIN sys_organization so ON so.org_id = ao.org_id
+        WHERE t.del_flag = 0
+        <if test="condition.orgId != null">
+            and (ao.org_id = #{condition.orgId,jdbcType=DECIMAL}
+            OR so.parentIds LIKE CONCAT('%,', #{condition.orgId,jdbcType=DECIMAL}, ',%'))
+        </if>
+        <if test="condition.orgIdNot != null">
+            and (ao.org_id != #{condition.orgIdNot,jdbcType=DECIMAL} or ao.org_id IS NULL)
+        </if>
+        <if test="condition.loginName != null and '' !=condition.loginName">
+          and t.login_name LIKE CONCAT('%', #{condition.loginName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.userName != null and '' !=condition.userName">
+            and t.user_name LIKE CONCAT('%', #{condition.userName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.userMobile != null and '' !=condition.userMobile">
+            and t.user_mobile LIKE CONCAT('%', #{condition.userMobile,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.userSex != null and '' !=condition.userSex">
+            and t.user_sex = #{condition.userSex,jdbcType=VARCHAR}
+        </if>
+        GROUP BY t.id
+        ORDER BY t.create_time DESC
+    </select>
+
+    <select id="findList" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.condition.app.AppUserCondition">
+        SELECT t.*
+        FROM app_user t
+        LEFT JOIN app_user_org ao ON ao.user_id = t.id
+        WHERE t.del_flag = 0
+        <if test="condition.orgId != null">
+            and ao.org_id != #{condition.orgId,jdbcType=DECIMAL}
+        </if>
+        <if test="condition.loginName != null and '' !=condition.loginName">
+            and t.login_name LIKE CONCAT('%', #{condition.loginName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.userName != null and '' !=condition.userName">
+            and t.user_name LIKE CONCAT('%', #{condition.userName,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.userMobile != null and '' !=condition.userMobile">
+            and t.user_mobile LIKE CONCAT('%', #{condition.userMobile,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.userSex != null and '' !=condition.userSex">
+            and t.user_sex = #{condition.userSex,jdbcType=VARCHAR}
+        </if>
+        GROUP BY t.id
+        ORDER BY t.create_time DESC
+    </select>
+</mapper>

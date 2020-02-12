@@ -1,0 +1,134 @@
+<#include "/macro.include"/>
+<#assign className = table.className>   
+<#assign classNameLower = className?uncap_first>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="${basepackage}.mapper.${modulepackage}.${className}Mapper">
+
+	<resultMap id="BaseResultMap" type="${basepackage}.model.vo.${modulepackage}.${className}Vo">
+		<#list table.pkColumns as column>
+        <id property="${column.columnNameLower}" column="${column.sqlName}"></id>
+		</#list>  
+        <#list table.notPkColumns as column>
+		<#if column.columnNameLower == 'createUser'>
+		<result property="createUserName" column="create_user_name"></result>
+		<#elseif column.columnNameLower == 'updateUser'>
+		<result property="updateUserName" column="update_user_name"></result>
+		<#else>
+		<result property="${column.columnNameLower}" column="${column.sqlName}"></result>
+		</#if>
+		</#list>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		<#list table.columns as column>
+		<#if column.columnNameLower == 'createUser'>
+		sys_c.admin_name AS 'create_user_name'<#if column_has_next>,</#if>
+		<#elseif column.columnNameLower == 'updateUser'>
+		sys_u.admin_name AS 'update_user_name'<#if column_has_next>,</#if>
+		<#else>
+		g.${column.sqlName}<#if column_has_next>,</#if>
+		</#if>
+		</#list>
+	</sql>
+
+	<sql id="Base_Sql_Joins">
+		<#list table.columns as column>
+		<#if column.columnNameLower == 'createUser'>
+		left join system_admin sys_c on sys_c.admin_id = g.create_user
+		<#elseif column.columnNameLower == 'updateUser'>
+		left join system_admin sys_u on sys_u.admin_id = g.update_user
+		<#else>
+		</#if>
+		</#list>
+	</sql>
+
+	<select id="findPageList" resultMap="BaseResultMap" parameterType="${basepackage}.model.condition.${modulepackage}.${className}Condition">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM ${table.sqlName} g
+		<include refid="Base_Sql_Joins"/>
+		WHERE 1 = 1
+		<#list table.columns as column>
+		<#if column.pk>
+		<#elseif column.columnNameLower == 'delFlag'>
+			AND g.del_flag = 0
+		<#elseif dataAuthorityType == '3' && column.columnNameLower == 'orgId'>
+		<if test="condition.orgIdArray != null and condition.orgIdArray.length!=0 ">
+			AND g.org_id IN
+			<foreach collection="condition.orgIdArray" item="orgIdItem"
+					 index="index" open="(" close=")" separator=",">
+				${r'#{orgIdItem}'}
+			</foreach>
+		</if>
+		<#elseif column.isDateTimeColumn && column.columnNameLower == 'createTime'>
+		<if test="condition.createTimeStr != null and condition.createTimeStr != ''">
+			AND	DATE_FORMAT(g.create_time, '%Y-%m-%d') = ${r'#{condition.createTimeStr}'}
+		</if>
+		<#elseif column.isDateTimeColumn && column.columnNameLower == 'updateTime'>
+		<if test="condition.updateTimeStr != null and condition.updateTimeStr != ''">
+			AND	DATE_FORMAT(g.update_time, '%Y-%m-%d') = ${r'#{condition.updateTimeStr}'}
+		</if>
+		<#elseif column.jdbcType == 'VARCHAR'>
+		<if test="condition.${column.columnNameLower} != null and condition.${column.columnNameLower} != ''">
+			AND	g.${column.sqlName} LIKE CONCAT('%', #${r'{'}condition.${column.columnNameLower}${r'}'}, '%')
+		</if>
+		<#elseif column.jdbcType == 'INTEGER'>
+		<if test="condition.${column.columnNameLower} != null">
+			AND	g.${column.sqlName} = #${r'{'}condition.${column.columnNameLower}${r'}'}
+		</if>
+		<#else>
+		<if test="condition.${column.columnNameLower} != null and condition.${column.columnNameLower} != ''">
+			AND	g.${column.sqlName} = #${r'{'}condition.${column.columnNameLower}${r'}'}
+		</if>
+		</#if>
+		</#list>
+	</select>
+
+	<select id="findList" resultMap="BaseResultMap" parameterType="${basepackage}.model.condition.${modulepackage}.${className}Condition">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM ${table.sqlName} g
+		<include refid="Base_Sql_Joins"/>
+		WHERE 1 = 1
+		<#list table.columns as column>
+		<#if column.pk>
+		<#elseif column.columnNameLower == 'delFlag'>
+			AND g.del_flag = 0
+		<#elseif dataAuthorityType == '3' && column.columnNameLower == 'orgId'>
+		<if test="condition.orgIdArray != null and condition.orgIdArray.length!=0 ">
+			AND g.org_id IN
+			<foreach collection="condition.orgIdArray" item="orgIdItem"
+					 index="index" open="(" close=")" separator=",">
+				${r'#{orgIdItem}'}
+			</foreach>
+		</if>
+		<#elseif column.isDateTimeColumn && column.columnNameLower == 'createTime'>
+		<if test="condition.createTimeStr != null and condition.createTimeStr != ''">
+			AND	DATE_FORMAT(g.create_time, '%Y-%m-%d') = ${r'#{condition.createTimeStr}'}
+		</if>
+		<#elseif column.isDateTimeColumn && column.columnNameLower == 'updateTime'>
+		<if test="condition.updateTimeStr != null and condition.updateTimeStr != ''">
+			AND	DATE_FORMAT(g.update_time, '%Y-%m-%d') = ${r'#{condition.updateTimeStr}'}
+		</if>
+		<#elseif column.jdbcType == 'VARCHAR'>
+		<if test="condition.${column.columnNameLower} != null and condition.${column.columnNameLower} != ''">
+			AND	g.${column.sqlName} LIKE CONCAT('%', #${r'{'}condition.${column.columnNameLower}${r'}'}, '%')
+		</if>
+		<#elseif column.jdbcType == 'VARCHAR'>
+		<if test="condition.${column.columnNameLower} != null and condition.${column.columnNameLower} != ''">
+			AND	g.${column.sqlName} LIKE CONCAT('%', #${r'{'}condition.${column.columnNameLower}${r'}'}, '%')
+		</if>
+		<#elseif column.jdbcType == 'INTEGER'>
+		<if test="condition.${column.columnNameLower} != null">
+			AND	g.${column.sqlName} = #${r'{'}condition.${column.columnNameLower}${r'}'}
+		</if>
+		<#else>
+		<if test="condition.${column.columnNameLower} != null and condition.${column.columnNameLower} != ''">
+			AND	g.${column.sqlName} = #${r'{'}condition.${column.columnNameLower}${r'}'}
+		</if>
+		</#if>
+		</#list>
+	</select>
+</mapper>

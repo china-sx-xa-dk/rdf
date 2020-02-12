@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.system.SystemRolePmsDao">
+	<resultMap id="BaseResultMap" type="java.util.Map">
+		<id column="PERMISSION_ID" property="permissionId" />
+		<id column="ROLE_ID" property="roleId" />
+		<result column="CHILD_IDS" property="childIds" />
+		<result column="ROLE_PER_CREATE_USER" property="rolePerCreateUser" />
+		<result column="ROLE_PER_CREATE_DATE" property="rolePerCreateDate" />
+	</resultMap>
+
+	<!-- 查询公共字段 -->
+	<sql id="Base_Column_List">
+		PERMISSION_ID, ROLE_ID, CHILD_IDS, ROLE_PER_CREATE_USER, ROLE_PER_CREATE_DATE
+	</sql>
+
+	<!-- 根据主键查询 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.domain.system.SystemRolePms">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM SYSTEM_ROLE_PERMISSION
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+		AND ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</select>
+
+	<!-- 根据主键删除 -->
+	<delete id="deleteByPrimaryKey" parameterType="com.sxgokit.rdf.model.domain.system.SystemRolePms">
+		DELETE FROM SYSTEM_ROLE_PERMISSION
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+		AND ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</delete>
+
+	<!-- 添加 -->
+	<insert id="insertSelective" parameterType="java.util.List">
+		INSERT INTO SYSTEM_ROLE_PERMISSION
+		(PERMISSION_ID,
+		 ROLE_ID,
+		 ROLE_PER_CREATE_DATE
+		)VALUES
+		<foreach collection="list" item="item" index="index" separator=","> 
+			(#{item.permissionId,jdbcType=DECIMAL},
+			#{item.roleId,jdbcType=DECIMAL},
+			SYSDATE())
+		</foreach>
+	</insert>
+
+	<!-- 修改 -->
+	<update id="updateSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemRolePms">
+		UPDATE SYSTEM_ROLE_PERMISSION
+		<set>
+			<if test="childIds != null">
+				CHILD_IDS = #{childIds,jdbcType=VARCHAR},
+			</if>
+			<if test="rolePerCreateUser != null">
+				ROLE_PER_CREATE_USER =
+				#{rolePerCreateUser,jdbcType=DECIMAL},
+			</if>
+			<if test="rolePerCreateDate != null">
+				ROLE_PER_CREATE_DATE =
+				#{rolePerCreateDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+		AND ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</update>
+
+	<!-- 根据角色ID删除 -->
+	<delete id="deleteByRoleId" parameterType="Integer">
+		DELETE FROM SYSTEM_ROLE_PERMISSION
+		WHERE ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</delete>
+
+	<!-- 根据菜单ID删除 -->
+	<delete id="deleteByPermissionId" parameterType="Integer">
+		DELETE FROM SYSTEM_ROLE_PERMISSION
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+	</delete>
+
+	<!-- 查询角色已有权限 -->
+	<select id="getPmsIdsByRoleId" parameterType="Integer" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM SYSTEM_ROLE_PERMISSION
+		WHERE ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</select>
+	
+	<!-- 查询已被分配菜单，删除菜单时确定角色权限表是有需要删除数据 -->
+	<select id="getPmsIdsByPermissionId" parameterType="Integer" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM SYSTEM_ROLE_PERMISSION
+		WHERE PERMISSION_ID = #{permissionId,jdbcType=DECIMAL}
+	</select>
+</mapper>

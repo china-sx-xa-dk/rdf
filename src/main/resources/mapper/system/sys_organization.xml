@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.system.SysOrganizationDao">
+
+    <resultMap id="SysOrganization" type="com.sxgokit.rdf.model.domain.system.SysOrganization">
+        <result column="org_id" property="orgId"/>
+        <result column="org_name" property="orgName"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="parentIds" property="parentIds" />
+    </resultMap>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		DELETE FROM sys_organization
+		WHERE org_id = #{orgId,jdbcType=DECIMAL}
+		OR parentIds LIKE CONCAT('%,', #{orgId,jdbcType=DECIMAL}, ',%')
+	</delete>
+
+    <!-- 添加 -->
+    <insert id="insertSelective" parameterType="com.sxgokit.rdf.model.domain.system.SysOrganization">
+        INSERT INTO sys_organization
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orgName != null">
+                org_name,
+            </if>
+            <if test="parentId != null">
+                parent_id,
+            </if>
+            <if test="parentIds != null">
+                parentIds,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orgName != null">
+                #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=DECIMAL},
+            </if>
+            <if test="parentIds != null">
+                #{parentIds,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 修改-->
+    <update id="updateSelective" parameterType="com.sxgokit.rdf.model.domain.system.SysOrganization">
+        UPDATE sys_organization
+        <set>
+            <if test="orgName != null">
+                org_name = #{orgName,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId,jdbcType=DECIMAL},
+            </if>
+            <if test="parentIds != null">
+                parentIds = #{parentIds,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE org_id = #{orgId,jdbcType=DECIMAL}
+    </update>
+
+    <select id="findList" resultMap="SysOrganization" parameterType="java.lang.Integer">
+        SELECT
+        SP.*,SP.parent_id AS "parent.orgId",p.org_name AS "parent.orgName"
+        FROM
+        sys_organization SP
+        LEFT JOIN sys_organization p ON p.org_id = SP.parent_id
+        <where>
+            <if test="orgId != null">
+                SP.org_id = #{orgId} OR SP.parentIds LIKE CONCAT('%,', #{orgId}, ',%')
+            </if>
+        </where>
+        GROUP BY SP.org_id
+        ORDER BY SP.org_id
+    </select>
+
+    <select id="findById" resultType="com.sxgokit.rdf.model.domain.system.SysOrganization" parameterType="java.lang.Integer">
+		SELECT
+		SP.*,SP.parent_id AS "parent.orgId",p.org_name AS "parent.orgName"
+	FROM
+		sys_organization SP
+		LEFT JOIN sys_organization p ON p.org_id = SP.parent_id
+		WHERE SP.org_id = #{orgId}
+		GROUP BY SP.org_id
+	</select>
+
+    <select id="getOrgTreeData" resultType="com.sxgokit.rdf.model.domain.system.SystemOrgTree" parameterType="java.lang.Integer">
+		SELECT org_id AS id,parent_id AS parentId,org_name AS `name`
+	    FROM sys_organization
+        <where>
+            <if test="orgId != null">
+                org_id = #{orgId} OR parentIds LIKE CONCAT('%,', #{orgId}, ',%')
+            </if>
+        </where>
+	</select>
+
+    <select id="getAllOrgIdByOrg" resultType="int" parameterType="int">
+        SELECT org_id FROM sys_organization
+        <where>
+            <if test="orgId != null">
+                org_id = #{orgId} OR parentIds LIKE CONCAT('%,', #{orgId}, ',%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -1,0 +1,1747 @@
+﻿@charset "UTF-8";
+/*!
+ * 文件名称：hui_min.css
+ */
+
+ /** 头部背景颜色和字体颜色 */
+#header{color: white;font-size:1.6rem;background-image: url('../image/public/gradualChange.png');background-size:cover;background-repeat: no-repeat;background-position:center center;}
+
+/* 字体颜色 */
+.hFontColor_ccc { color: #ccc; }
+.hFontColor_eee { color: #eee; }
+.hFontColor_cdcd { color: #CDCDCD; }
+.hFontColor_333 { color: #333; }
+.hFontColor_444 { color: #444; }
+.hFontColor_666 { color: #666; }
+.hFontColor_999 { color: #999; }
+.hFontColor_white { color: white; }
+.hFontColor_black { color: black; }
+.hFontColor_red { color: red; }
+.hFontColor_green { color: green; }
+.hFontColor_blue { color: blue; }
+.hFontColor_yellow { color: yellow; }
+.hFontColor_pink { color: pink; }
+.hFontColor_gray { color: gray; }
+.hFontColor_black_active { color: #333; }
+.hFontColor_techer_blue { color: #4494EB; }
+.hFontColor_6d7 { color: #BCC6D7; }
+
+.hFontColor_white{color: white;}
+.hFontColor_ccc{color: #ccc;}
+.hFontColor_666{color: #666;}
+.hFontColor_999{color: #999;}
+.hFontColor_black{color: black;}
+.hFontColor_red{color: red;}
+
+.hFontColor_color1{color: #3caaf0; }
+.hFontColor_color2 {color: #ff7f8a; }
+.hFontColor_color3 {color: #3c4146; }
+.hFontColor_color4 {color: #ffa977; }
+.hFontColor_color5 {color: #4db7ad; }
+.hFontColor_color6 {color: #337ab7; }
+.hFontColor_color7 {color: #d9534f; }
+.hFontColor_color8 {color: #ff7850; }
+.hFontColor_color9 {color: #5cb85c; }
+.hFontColor_color10 {color: #ff9900; }
+/* 字体高亮颜色 */
+.hFontColor_color1_active { color: #408CBB; }
+.hFontColor_color2_active { color: #e8747e; }
+.hFontColor_color3_active { color: #222427; }
+.hFontColor_color4_active { color: #FC8B4A; }
+.hFontColor_color5_active { color: #3F9189; }
+.hFontColor_color6_active { color: #266dab; }
+.hFontColor_color7_active { color: #D83632; }
+.hFontColor_color8_active { color: #C89041; }
+.hFontColor_color9_active { color: #28A028; }
+.hFontColor_color1_click:active, .hFontColor_color2_click:active, .hFontColor_color3_click:active, .hFontColor_color4_click:active, .hFontColor_color5_click:active, .hFontColor_color6_click:active, .hFontColor_color7_click:active, .hFontColor_color8_click:active, .hFontColor_color9_click:active { color: #fff; }
+/* 字体大小 */
+.hFontSize_0 { font-size: 0!important; }
+.hFontSize_8 { font-size:0.8rem!important; }
+.hFontSize_9 { font-size:0.9rem!important; }
+.hFontSize_10 { font-size: 1rem!important; }
+.hFontSize_11{font-size: 1.1rem!important;}
+.hFontSize_12{font-size: 1.2rem!important;}
+.hFontSize_13 { font-size: 1.3rem!important; }
+.hFontSize_14{font-size: 1.4rem!important;}
+.hFontSize_15{font-size: 1.5rem!important;}
+.hFontSize_16{font-size: 1.6rem!important;}
+.hFontSize_18{font-size: 1.8rem!important;}
+.hFontSize_20{font-size: 2.0rem!important;}
+.hFontSize_22{font-size: 2.2rem!important;}
+.hFontSize_24{font-size: 2.4rem!important;}
+.hFontSize_26{font-size: 2.6rem!important;}
+.hFontSize_28{font-size: 2.8rem!important;}
+.hFontSize_30{font-size: 3.0rem!important;}
+.hFontSize_32{font-size: 3.2rem!important;}
+.hFontSize_34 { font-size: 3.4rem!important; }
+.hFontSize_36 { font-size: 3.6rem!important; }
+.hFontSize_38 { font-size: 3.8rem!important; }
+.hFontSize_40 { font-size: 4.0rem!important; }
+.hFontSize_42 { font-size: 4.2rem!important; }
+.hFontSize_44 { font-size: 4.4rem!important; }
+.hFontSize_46 { font-size: 4.6rem!important; }
+.hFontSize_48 { font-size: 4.8rem!important; }
+.hFontSize_50 { font-size: 5.0rem!important; }
+.hFontSize_80 { font-size: 8.0rem!important; }
+/* 字体加粗 */
+.hFontWeight_bold { font-weight: bold; }
+.hFontWeight_normal { font-weight: normal; }
+.hFontWeight_500 { font-weight: 500; }
+.hFontWeight_600 { font-weight: 600; }
+/* 背景颜色 */
+.hBgColor_0_6 { background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.6));}
+.hBgColor_transparent { background-color: rgba(0,0,0,0); }
+.hBgColor_ccc { background-color: #ccc; }
+.hBgColor_eee { background-color: #eee; }
+.hBgColor_f9f9f9 { background-color: #f9f9f9; }
+.hBgColor_f3f3f3 { background-color: #f3f3f3; }
+.hBgColor_333 { background-color: #333; }
+.hBgColor_444 { background-color: #444; }
+.hBgColor_666 { background-color: #666; }
+.hBgColor_999 { background-color: #999; }
+.hBgColor_green_button{ background-color:#4CAF50; }
+.hBgColor_red_button{ background-color:#f44336; }
+.hBgColor_white { background-color: white; }
+.hBgColor_black { background-color: black;}
+.hBgColor_red { background-color: red; }
+.hBgColor_green { background-color: green; }
+.hBgColor_blue { background-color: blue; }
+.hBgColor_yellow { background-color: yellow; }
+.hBgColor_pink { background-color: pink; }
+.hBgColor_gray { background-color: gray; }
+.hBgColor_active { background-color: #333; }
+.hBgColor_f4f4f4 { background-color: #f4f4f4; }
+.hBgColor_ddd { background-color: #ddd; }
+.hBgColor_e5e5e5 { background-color: #e5e5e5; }
+
+.hBgColor_color1 { background-color: #3caaf0; }
+.hBgColor_color2 { background-color: #ff7f8a; }
+.hBgColor_color3 { background-color: #3c4146; }
+.hBgColor_color4 { background-color: #ffa977; }
+.hBgColor_color5 { background-color: #4db7ad; }
+.hBgColor_color6 { background-color: #337ab7; }
+.hBgColor_color7 { background-color: #d9534f!important; }
+.hBgColor_color8 { background-color: #ff7850; }
+.hBgColor_color9 { background-color: #5cb85c; }
+/* 背景颜色高亮颜色 */
+.hBgColor_active1 { background-color: #408CBB; }
+.hBgColor_active2 { background-color: #e8747e; }
+.hBgColor_active3 { background-color: #222427; }
+.hBgColor_active4 { background-color: #FC8B4A; }
+.hBgColor_active5 { background-color: #3F9189; }
+.hBgColor_active6 { background-color: #266dab; }
+.hBgColor_active7 { background-color: #D83632; }
+.hBgColor_active8 { background-color: #ff9b39; }
+.hBgColor_active9 { background-color: #28A028; }
+.hBgColor_color1_click:active { background-color: #408CBB; }
+.hBgColor_color2_click:active { background-color: #e8747e; }
+.hBgColor_color3_click:active { background-color: #222427; }
+.hBgColor_color4_click:active { background-color: #FC8B4A; }
+.hBgColor_color5_click:active { background-color: #3F9189; }
+.hBgColor_color6_click:active { background-color: #266dab; }
+.hBgColor_color7_click:active { background-color: #D83632; }
+.hBgColor_color8_click:active { background-color: #ff9b39; }
+.hBgColor_color9_click:active { background-color: #28A028; }
+/*常用等宽*/
+.hWidth_100 { width: 100%; }
+.hWidth_85 { width: 85%; }
+.hWidth_75 { width: 75%; }
+.hWidth_66 { width: 66.66666666666666%; }
+.hWidth_50 { width: 50%; }
+.hWidth_47 { width: 47%; }
+.hWidth_45 { width: 45%; }
+.hWidth_40 { width: 40%; }
+.hWidth_33 { width: 33.33333333333333%; }
+.hWidth_30 { width: 30%; }
+.hWidth_25 { width: 25%; }
+.hWidth_20 { width: 20%; }
+.hWidth_15 { width: 15%; }
+.hWidth_16 { width: 16.66666666666667%; }
+.hWidth_10px { width: 10px; }
+.hWidth_15px { width: 15px; }
+.hWidth_40px { width: 40px; }
+.hWidth_45px { width: 45px; }
+.hWidth_50px { width: 50px; }
+.hWidth_75px { width: 75px; }
+.hWidth_80px { width: 80px; }
+.hWidth_90px { width: 90px; }
+.hWidth_100px { width: 100px; }
+.hWidth_375px { width: 375px; }
+
+/* 宽高100% */
+.hWidthAndHeight_100{width: 100%;height: 100%;}
+/*常用高度*/
+.hHeight_auto { height:auto !important; }
+.hHeight_4px { height: 4px; }
+.hHeight_8px { height: 8px; }
+.hHeight_10px { height: 10px; }
+.hHeight_12px { height: 12px; }
+.hHeight_13px { height: 13px; }
+.hHeight_14px { height: 14px; }
+.hHeight_15px { height: 15px; }
+.hHeight_20px { height: 20px; }
+.hHeight_40px { height: 40px; }
+.hHeight_45px { height: 45px; }
+.hHeight_50px { height: 50px; }
+.hHeight_60px { height: 60px; }
+.hHeight_70px { height: 70px; }
+.hHeight_75px { height: 75px; }
+.hHeight_80px { height: 80px; }
+.hHeight_85px { height: 85px; }
+.hHeight_90px { height: 90px; }
+.hHeight_100px { height: 100px; }
+.hHeight_120px { height: 120px; }
+.hHeight_125px { height: 125px; }
+.hHeight_130px { height: 130px; }
+.hHeight_150px { height: 150px; }
+.hHeight_180px { height: 180px; }
+.hHeight_200px { height: 200px; }
+.hHeight_220px { height: 220px; }
+.hHeight_250px { height: 250px; }
+.hHeight_300px { height: 300px; }
+.hHeight_100 { height: 100%; }
+/*引入字体图标*/
+@font-face { font-family: 'iconfont'; src: url('Hui.ttf') format('truetype');}
+/* 符号 */
+.hFontArrows:before { content: "\f013"; }
+.hFontless:before { content: "\f003"; }
+.hFontSetting:before { content: "\f022"; }
+.hFontMsg:before { content: "\f033"; }
+.hFontQrcode:before { content: "\f024"; }
+.hFontArrowDown:before { content: "\f023"; }
+.hFontArrowUp:before { content: "\f099"; }
+.hFontArrowRight:before { content: "\f004"; }
+.hFontSearch:before { content: "\f010"; }
+.hFontUi:before { content: "\f082"; }
+.hFontMoban:before { content: "\f089"; }
+.hFontDoc:before { content: "\f088"; }
+.hFontGame:before { content: "\f079"; }
+.hFontUser:before { content: "\f016"; }
+.hFontAdd:before { content: "\f006"; }
+.hFontwarn:before { content: "\f009"; }
+.hFontShareTo:before { content: "\f102"; }
+.hFontTime:before { content: "\f030"; }
+.hFontStar:before { content: "\f031"; }
+.hFontQQ:before { content: "\f025"; }
+.hFontWX:before { content: "\f028"; }
+.hFontWeiBo:before { content: "\f026"; }
+.hFontQzone:before { content: "\f029"; }
+.hFontFriends:before { content: "\f027"; }
+.hFontEarth:before { content: "\f007"; }
+.hFontClose:before { content: "\f117"; }
+.hFontStarNull:before { content: "\f084"; }
+.hFontStarFill:before { content: "\f083"; }
+.hFontDropSort:before { content: "\f210"; }
+/*****************垂直方向***************/
+/* padding */
+.hpadding_horizontal_both_3{padding-left:3px;padding-right:3px;}
+.hpadding_horizontal_both_5{padding-left:5px;padding-right:5px;}
+.hpadding_horizontal_voth_5{padding-top:5px;padding-bottom:5px;}
+.hpadding_horizontal_voth_6{padding-top:6px;padding-bottom:6px;}
+.hpadding_horizontal_voth_7{padding-top:7px;padding-bottom:7px;}
+
+.hpadding_horizontal_both_10{padding-left: 10px; padding-right: 10px;}
+.hpadding_horizontal_both_15{padding-left: 15px!important; padding-right: 15px!important;}
+.hpadding_horizontal_both_20{padding-left: 20px; padding-right: 20px;}
+.hpadding_horizontal_both_25{padding-left: 25px; padding-right: 25px;}
+.hpadding_horizontal_both_30{padding-left: 30px; padding-right: 30px;}
+.hpadding_horizontal_both_32{padding-left: 32px; padding-right: 32px;}
+.hpadding_horizontal_voth_10{padding-top: 10px; padding-bottom: 10px;}
+.hpadding_horizontal_voth_15{padding-top: 15px; padding-bottom: 15px;}
+.hpadding_horizontal_voth_25{padding-top: 25px; padding-bottom: 25px;}
+
+.hPadding_0 {padding: 0px;}
+.hPadding_3 {padding: 3px;}
+.hPadding_5 {padding: 5px;}
+.hPadding_10 {padding: 10px;}
+
+.hPaddingLeft_3 { padding-left:3px!important; }
+.hPaddingLeft_5 { padding-left:5px!important; }
+.hPaddingLeft_10 { padding-left:10px!important; }
+.hPaddingLeft_15 { padding-left:15px!important; }
+.hPaddingLeft_20 { padding-left:20px!important; }
+
+.hPaddingRight_0 { padding-right:0px!important; }
+.hPaddingRight_3 { padding-right:3px!important; }
+.hPaddingRight_5 { padding-right:5px!important; }
+.hPaddingRight_10 { padding-right:10px!important; }
+.hPaddingRight_15 { padding-right:15px!important; }
+.hPaddingRight_20 { padding-right:20px!important; }
+
+.hPaddingtop_0 { padding-top:0px !important; }
+.hPaddingtop_1 { padding-top:1px; }
+.hPaddingtop_3 { padding-top:3px; }
+.hPaddingtop_5 { padding-top:5px; }
+.hPaddingtop_7 { padding-top:7px; }
+.hPaddingtop_8 { padding-top:8px; }
+.hPaddingtop_10 { padding-top:10px; }
+.hPaddingtop_15 { padding-top:15px; }
+.hPaddingtop_20 { padding-top: 20px; }
+.hPaddingtop_25 { padding-top: 25px; }
+.hPaddingtop_30 { padding-top: 30px; }
+.hPaddingtop_35 { padding-top: 35px; }
+.hPaddingtop_50 { padding-top: 50px; }
+.hPaddingtop_60 { padding-top: 60px; }
+.hPaddingtop_70 { padding-top: 70px; }
+.hPaddingtop_80 { padding-top: 80px; }
+.hPaddingtop_110 { padding-top: 110px; }
+
+.hPaddingbottom_0 { padding-bottom: 0px; }
+.hPaddingbottom_1 { padding-bottom: 3px; }
+.hPaddingbottom_3 { padding-bottom: 3px; }
+.hPaddingbottom_5 { padding-bottom: 5px; }
+.hPaddingbottom_10 { padding-bottom: 10px; }
+.hPaddingbottom_15 { padding-bottom: 15px; }
+.hPaddingbottom_20 { padding-bottom: 20px; }
+.hPaddingbottom_25 { padding-bottom: 25px; }
+.hPaddingbottom_30 { padding-bottom: 30px; }
+.hPaddingbottom_35 { padding-bottom: 35px; }
+.hPaddingbottom_40 { padding-bottom: 40px; }
+.hPaddingbottom_45 { padding-bottom: 45px; }
+.hPaddingbottom_50 { padding-bottom: 50px; }
+.hPaddingbottom_60 { padding-bottom: 60px; }
+.hPaddingbottom_70 { padding-bottom: 70px; }
+
+/* margin */
+.hMargin_0{margin:0px !important;}
+.hMargin_5{margin:5px !important;}
+
+.hMarginBottom_0 { margin-bottom: 0px !important; }
+.hMarginBottom_2 { margin-bottom: 2px !important; }
+.hMarginBottom_5 { margin-bottom: 5px !important; }
+.hMarginBottom_10 { margin-bottom: 10px !important; }
+.hMarginBottom_15 { margin-bottom: 15px !important; }
+/*****************水平方向***************/
+/* margin */
+.hMarginTop_1 { margin-top: 1px !important; }
+.hMarginTop_2 { margin-top: 2px !important; }
+.hMarginTop_3 { margin-top: 3px !important; }
+.hMarginTop_4 { margin-top: 4px !important; }
+.hMarginTop_5 { margin-top: 5px !important; }
+.hMarginTop_6 { margin-top: 6px !important; }
+.hMarginTop_7 { margin-top: 7px !important; }
+.hMarginTop_8 { margin-top: 8px !important; }
+.hMarginTop_9 { margin-top: 9px !important; }
+.hMarginTop_10 { margin-top: 10px !important; }
+.hMarginTop_12 { margin-top: 12px !important; }
+.hMarginTop_15 { margin-top: 15px !important; }
+.hMarginTop_20 { margin-top: 20px !important; }
+.hMarginTop_25 { margin-top: 25px !important; }
+.hMarginTop_30 { margin-top: 30px !important; }
+.hMarginTop_35 { margin-top: 35px !important; }
+.hMarginTop_40 { margin-top: 40px !important; }
+.hMarginTop_45 { margin-top: 45px !important; }
+.hMarginTop_50 { margin-top: 50px !important; }
+.hMarginTop_60 { margin-top: 60px !important; }
+.hMarginTop_70 { margin-top: 70px !important; }
+.hMarginTop_90 { margin-top: 90px !important; }
+
+.hMarginLeft_0 { margin-left: 0px !important; }
+.hMarginLeft_5 { margin-left: 5px !important; }
+.hMarginLeft_10 { margin-left: 10px !important; }
+
+.hMarginRight_1 { margin-right: 1px !important; }
+.hMarginRight_2 { margin-right: 2px !important; }
+.hMarginRight_3 { margin-right: 3px !important; }
+.hMarginRight_5 { margin-right: 5px !important; }
+.hMarginRight_10 { margin-right: 10px !important; }
+.hMarginRight_15 { margin-right: 15px !important; }
+.hMarginRight_20 { margin-right: 20px !important; }
+.hMarginRight_25 { margin-right: 25px !important; }
+.hMarginRight_30 { margin-right: 30px !important; }
+
+/* padding */
+.hPaddingRight_5 { padding-right: 5px; }
+.hPaddingRight_8 { padding-right: 8px; }
+.hPaddingRight_10 { padding-right: 10px; }
+.hPaddingLeft_10 { padding-left: 10px; }
+.hPaddingLeft_25 { padding-left: 25px; }
+/*四边圆角*/
+.hBorderRadius_3 { border-radius: 3px!important; -webkit-border-radius: 3px!important; }
+.hBorderRadius_5 {border-radius: 5px!important; -webkit-border-radius: 5px!important;}
+.hBorderRadius_10 {border-radius: 10px!important; -webkit-border-radius: 10px!important;}
+.hBorderRadius_15 {border-radius: 15px!important; -webkit-border-radius: 15px!important;}
+.hBorderRadius_20 {border-radius: 20px!important; -webkit-border-radius: 20px!important;}
+.hBorderRadius_30 {border-radius: 30px!important; -webkit-border-radius: 30px!important;}
+.hBorderRadius_50 {border-radius: 50%!important; -webkit-border-radius: 50%!important;}
+/* 常用圆角 */
+.hborder_left5 { border-radius: 5px 0 0 5px; -webkit-border-radius: 5px 0 0 5px; }
+.hborder_right5 { border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; }
+
+/*常用边框颜色*/
+.hBorderTop_1px{border-top:#f7f7f7 1px solid;}
+.hBorderLeft_1px{border-left:#f7f7f7 1px solid;}
+.hBorderRight_1px{border-right:#f7f7f7 1px solid;}
+.hBorderBottom_1px{border-bottom:#f7f7f7 1px solid;}
+.hBorderLeft_ddd{border-left:#ddd 1px solid;}
+.hBorderBottom_fff_dashed{border-bottom:#fff 1px dashed;}
+/*四边线*/
+.hBorderColor_eee { border: 1px solid #eee;}
+.hBorderColor_color666 { border: 1px solid #666; }
+.hBorderColor_black { border: 1px solid black; }
+.hBorderColor_white { border: 1px solid white; }
+.hBorderColor_color1 { border: 1px solid #3caaf0; }
+.hBorderColor_color2 { border: 1px solid #ff7f8a; }
+.hBorderColor_color3 { border: 1px solid #3c4146; }
+.hBorderColor_color4 { border: 1px solid #ffa977; }
+.hBorderColor_color5 { border: 1px solid #4db7ad; }
+.hBorderColor_color6 { border: 1px solid #337ab7; }
+.hBorderColor_color7 { border: 1px solid #d9534f; }
+.hBorderColor_color8 { border: 1px solid #fe840c; }
+.hBorderColor_color9 { border: 1px solid #5cb85c; }
+
+
+/* 常用定位 */
+.hAbsolute { position: absolute!important; }
+.hRelative { position: relative!important; }
+.HFixed { position: fixed!important; }
+.HStatic { position: static!important; }
+
+.hTop_0{top:0px;}
+.hTop_1{top:1px;}
+.hTop_2{top:2px;}
+.hTop_3{top:3px;}
+.hTop_4{top:4px;}
+.hTop_5{top:5px;}
+.hTop_8{top:8px;}
+.hTop_10{top:10px;}
+.hTop_15{top:15px;}
+.hTop_20{top:20px;}
+.hTop_25{top:25px;}
+
+.hRight_0{right:0px;}
+.hRight_1{right:1px;}
+.hRight_2{right:2px;}
+.hRight_3{right:3px;}
+.hRight_4{right:4px;}
+.hRight_5{right:5px;}
+.hRight_10{right:10px;}
+.hRight_15{right:15px;}
+.hRight_18{right:18px;}
+
+.hLeft_0{left:0px;}
+.hLeft_10{left:10px;}
+
+.hBottom_0{bottom:0px;}
+.hBottom_10{bottom:10px;}
+/* 常用浮动 */
+.hFloatLeft { float: left!important; }
+.hFloatRight { float: right!important; }
+.hFloatNone { float: none!important; }
+.hClearBoth { clear: both!important; }
+
+/* 文本对齐 */
+.hTextAlignCenter { text-align: center; }
+.hTextAlignLeft { text-align: left; }
+.hTextAlignRight { text-align: right; }
+
+/* 常用行块元素切换 */
+.H_displayNone { display: none; }
+.H_displayNoneImportant { display: none !important; }
+.H_displayBlock { display: block; }
+.H_displayBlockImportant { display: block !important; }
+.H_displayInline { display: inline; }
+.H_displayInlineBlock { display: inline-block; }
+.H_displayInlineBlockImportant { display: inline-block !important; }
+.H_displayTable { display: table; }
+.H_displayTableCell { display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+
+/* 四边线高亮颜色 */
+.hBorderColor_color1_active { border: 1px solid #61bcf6; }
+.hBorderColor_color2_active { border: 1px solid #e8747e; }
+.hBorderColor_color3_active { border: 1px solid #222427; }
+.hBorderColor_color4_active { border: 1px solid #FC8B4A; }
+.hBorderColor_color5_active { border: 1px solid #3F9189; }
+.hBorderColor_color6_active { border: 1px solid #266dab; }
+.hBorderColor_color7_active { border: 1px solid #D83632; }
+.hBorderColor_color8_active { border: 1px solid #C89041; }
+.hBorderColor_color9_active { border: 1px solid #28A028; }
+.hBorderColor_color1_click:active { border: 1px solid #61bcf6; }
+.hBorderColor_color2_click:active { border: 1px solid #e8747e; }
+.hBorderColor_color3_click:active { border: 1px solid #222427; }
+.hBorderColor_color4_click:active { border: 1px solid #FC8B4A; }
+.hBorderColor_color5_click:active { border: 1px solid #3F9189; }
+.hBorderColor_color6_click:active { border: 1px solid #266dab; }
+.hBorderColor_color7_click:active { border: 1px solid #D83632; }
+.hBorderColor_color8_click:active { border: 1px solid #C89041; }
+.hBorderColor_color9_click:active { border: 1px solid #28A028; }
+
+
+/*元素上下左右居中*/
+.hAll_centerMiddle{position:fixed;left: 50%;top: 50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+.hDiv_centerMiddle{position:absolute;left: 50%;top: 50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);}
+/*
+<li v-for="(index,item) in productType" class="H-channel-item hTextWordShowRow_1 hSwitchOption_channel_item H-tabs-active hBgColor_white" >{{item.name}}</li>
+<div v-for="(index,item) in productType" class="H-tabs-item" v-bind:class="{'hSwitchOption_display':index!='0'}">
+		{{item.info}}
+</div>*/
+/* ******************************************************************分类标题*********************************************************************************************** */
+/*分类标题*/
+.hChannelTitle{
+	height: 44px;
+	left: 0;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	overflow: hidden; text-overflow: ellipsis; display: box; display: -webkit-box; word-wrap: break-word; white-space: normal !important; -webkit-box-orient: vertical;
+	line-clamp: 1; -webkit-line-clamp: 1;
+	position: absolute;
+	width: 100%;
+}
+.hBorderBottomAfter, .hBorderRightAfter, .hBorderTopAfter,.hBorderLeftAfter{
+	position: relative; overflow: hidden;
+}
+.hBorderBottomAfter:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #eee;
+}
+.hBorderRightAfter:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-right: 1px solid #eee;
+}
+.hBorderTopAfter:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-top: 1px solid #eee;
+}
+.hBorderLeftAfter:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-left: 1px solid #eee;
+}
+@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+    .hBorderBottomAfter:after, .hBorderRightAfter:after, .hBorderTopAfter:after { right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5); }
+}
+/*头部*/
+.hHeader{min-height: 44px;}
+/*分类标题的横向样式*/
+.hChannelBox{
+	clear: both;
+	width: 100%;
+	display: table;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+/*单个分类标题内部上方的大字母*/
+.hChannelLetter{
+	-webkit-animation-duration: 1s; animation-duration: 1s; -webkit-animation_fill-mode: both; animation_fill-mode: both;
+	-webkit-animation-iteration-count: infinite; animation-iteration-count: infinite;
+	height: 44px;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	margin-left: auto; margin-right: auto;
+	font-weight: 600;
+	height: 42px; width: 42px; line-height:42px;
+}
+/*单个分类标题内部下方的字体样式*/
+.hChannelFont{
+	display: block;
+	margin-top: 5px;
+}
+/*分类标题边框样式*/
+.hChannelTitle{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/*分类标题内部左边的小竖杠*/
+.hChannelLine{
+	padding-top: 15px;
+	padding-left: 3px;
+	margin-left: 10px;
+}
+/*分类标题内部详细说明*/
+.hChannelText{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding: 10px;
+	margin-right: 10px;
+	overflow: hidden; text-overflow: ellipsis; display: box; display: -webkit-box; word-wrap: break-word; white-space: normal !important; -webkit-box-orient: vertical;
+	line-clamp: 1; -webkit-line-clamp: 1;
+}
+/* **********************************************************提示角标*************************************************************************************************** */
+/* 角标边框 */
+.hBadgeBox{
+	padding-left: 10px; padding-right: 10px;
+	line-height: 0;
+}
+/* 角标 */
+.hBadge{
+	display: inline-block;
+}
+/* 角标内容 */
+.hBadgeContent{
+	height: 18px; line-height: 18px; padding: 0 6px; border-radius: 9px; -webkit-border-radius: 9px; transform: translateY(0.5); -webkit-transform: translateY(0.5);
+	display: inline-block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 角标内容 */
+.TexthBadgeContent{
+	height: 12px; line-height: 12px; padding: 0 6px; border-radius: 6px; -webkit-border-radius: 6px; transform: translateY(0.5); -webkit-transform: translateY(0.5);
+	display: inline-block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 原点角标 */
+.hBadgeOrigin{
+	display: inline-block;
+	width: 8px; height: 8px;
+	border-radius: 50%; -webkit-border-radius: 50%;
+}
+/* **********************************************************************顶部导航****************************************************************************************** */
+/* 顶部导航带图标的，左边的图标的边框 */
+.hIconBox{
+	height: 44px;
+	position: relative;
+	display: inline-block;
+	float: left;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	padding-left: 5px;
+	z-index: 100;
+}
+/* 顶部导航带图标的，左边的图标 */
+.hIcon{
+	font-family: "iconfont" !important; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	-webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 顶部导航带图标和字的，左边的字体 */
+.hIconFont{
+	height: 18px; line-height: 18px; border-radius: 9px; -webkit-border-radius: 9px; transform: translateY(0.5); -webkit-transform: translateY(0.5);
+	display: block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 顶部导航带图标的，右边的图标的边框 */
+.hIconRightBox{
+	height: 44px;
+	position: relative;
+	display: inline-block;
+	float: right;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	z-index: 100;
+}
+/* 顶部导航图标带角标，右边的图标样式 */
+.hRightBadge{
+	display: inline-block;
+	position: absolute;
+	z-index: 100;
+}
+/* 顶部导航图标带角标，右边的图标样式上的点 */
+.hRightBadgeDot{
+	display: inline-block;
+	width: 8px; height: 8px;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	position: absolute;
+	z-index: 100;
+}
+/* 顶部导航带头像，左边头像的样式*/
+.hIconImg{
+	border-radius: 50%; -webkit-border-radius: 50%;
+	display: block;
+	height:36px;width:36px;
+}
+/* 顶部导航带两个选项卡 */
+/* 左边选项卡样式 */
+.hHeaderTag_left{
+	padding-top: 2px; padding-bottom: 2px;
+	padding-left: 12px; padding-right: 12px;
+	border-top: 1px solid white; border-bottom: 1px solid white;
+	border-left: 1px solid white;
+	border-radius: 12px 0 0 12px; -webkit-border-radius: 12px 0 0 12px;
+	overflow: hidden;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+}
+/* 右边选项卡样式 */
+.hHeaderTag_right{
+	padding-top: 2px; padding-bottom: 2px;
+	padding-left: 12px; padding-right: 12px;
+	border-top: 1px solid white; border-bottom: 1px solid white;
+	border-left: 1px solid white; border-right: 1px solid white;
+	border-radius: 0 12px 12px 0; -webkit-border-radius: 0 12px 12px 0;
+	overflow: hidden;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+}
+/* 顶部导航带三个选项卡 ，中间的选项卡*/
+.hHeaderTag{
+	padding-top: 2px; padding-bottom: 2px;
+	padding-left: 12px; padding-right: 12px;
+	border-top: 1px solid white; border-bottom: 1px solid white;
+	overflow: hidden;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+}
+/***** 带搜索，带多图标*********/
+/* H-header-title，header内部包裹所有的div样式 */
+.hHeaderTitle{
+	height: 44px;
+	left: 0;
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	position: absolute;
+	width: 100%;
+}
+/* 带搜索，带多图标的导航栏左边的字体 */
+.hHeaderTitleRightFont{
+	display: block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 带搜索，带多图标的导航栏中间的搜索框 */
+.hHeaderSearch{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	margin-left: 10px; margin-right: 10px;
+	padding-left: 10px; padding-right: 10px;
+	position: relative;
+	border-radius: 15px; -webkit-border-radius: 15px;
+	line-height: normal;
+}
+/* 带搜索，带多图标的导航栏中间的搜索框的图标span */
+.hHeaderSearchSpan{
+	height: 44px;
+	display: block;
+	position: absolute;
+	float: left;
+	z-index: 10;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	height: 100% !important;
+}
+/* 带搜索，带多图标的导航栏中间的搜索框的input输入框的样式 */
+.hHeaderSearchInput{
+	width: 100%;
+	border-width: 0; outline-width: 0;
+	padding-right: 10px;
+	padding-top:8px; padding-bottom: 8px;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* *****************************************************************************底部导航栏*********************************************************************************** */
+/* 底部导航栏 */
+.hFooter{
+	height: 55px;
+	display: box; display: -webkit-box;  -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+/* 底部导航栏,单个的,带点击效果 */
+.hFlexItem{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	text-align: center;
+}
+/* 底部导航栏,单个的,不带点击效果 */
+.hFlexItemNoAct{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	text-align: center;
+	position: relative;
+}
+/* 底部导航栏,单个的点击之后的样式 */
+.hFlexItem:active{
+	background: #f4f4f4;
+}
+/* 底部导航栏, 包裹图标的样式*/
+.hFooterIconSpan{
+	display: block;
+	line-height: normal;
+}
+/* 底部导航栏,字体样式*/
+.hFooterStrong{
+	display: block;
+}
+/* 底部导航栏,五列布局带更多按钮，中间的更多按钮的样式*/
+.hFooterAdd{
+	height: 44px;
+	display: block;
+	line-height: normal;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	height:40px;width:40px;
+}
+/* 底部导航栏,五列突出按钮，中间的更多按钮的样式*/
+.hFooterExtrude{
+	height: 44px;
+	display: block;
+	line-height: normal;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	position: relative;
+	z-index: 10000;
+	height:45px;width:45px; top:-2px;
+}
+/* 底部导航栏,五列突出按钮，中间的更多按钮上方突出的样式*/
+.hFooterCoverHalfLine{
+	left: 0; top: -2px; transform: scaleY(0.9); -webkit-transform: scaleY(0.9);
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+    height: 100%;
+}
+.hFooterHalfCircle{
+	left: 50%; margin-left: -25px; top: -10px; width: 50px; height: 25px; border-radius: 25px 25px 0 0; border: 1px solid #f4f4f4; border-bottom: 0;
+	position: absolute;
+	z-index: 100;
+}
+/* ********************************************************************************常用按钮******************************************************************************** */
+/* 按钮 */
+.hButton{
+	min-width: 120px; -webkit-touch-callout: none; -webkit-appearance: none; -webkit-user-select: none;
+	outline-width: 0;
+	padding-top: 8px; padding-bottom: 8px;
+	padding-left: 20px; padding-right: 20px;
+}
+/* 按钮边框颜色 */
+.hButtonBox_black{border: 1px solid black;}
+.hButtonBox_color1{border: 1px solid #009fd9;}
+.hButtonBox_color2{border: 1px solid #ff7f8a;}
+.hButtonBox_color3{border: 1px solid #3c4146;}
+.hButtonBox_color4{border: 1px solid #ffa977;}
+.hButtonBox_color5{border: 1px solid #4db7ad;}
+.hButtonBox_color6{border: 1px solid #337ab7;}
+.hButtonBox_color7{border: 1px solid #d9534f;}
+.hButtonBox_color8{border: 1px solid #fe840c;}
+.hButtonBox_color9{border: 1px solid #5cb85c;}
+/* 点击按钮样式 */
+.hButtonClick_333:active { border: 1px solid #333;background-color: #333;color: #fff;}
+.hButtonClick_color1:active { border: 1px solid #408CBB;background-color: #408CBB;color: #fff;}
+.hButtonClick_color2:active { border: 1px solid #e8747e;background-color: #e8747e;color: #fff;}
+.hButtonClick_color3:active { border: 1px solid #222427;background-color: #222427;color: #fff;}
+.hButtonClick_color4:active { border: 1px solid #FC8B4A;background-color: #FC8B4A;color: #fff;}
+.hButtonClick_color5:active { border: 1px solid #3F9189;background-color: #3F9189;color: #fff;}
+.hButtonClick_color6:active { border: 1px solid #266dab;background-color: #266dab;color: #fff;}
+.hButtonClick_color7:active { border: 1px solid #D83632;background-color: #D83632;color: #fff;}
+.hButtonClick_color8:active { border: 1px solid #ef7b09;background-color: #ef7b09;color: #fff;}
+.hButtonClick_color9:active { border: 1px solid #28A028;background-color: #28A028;color: #fff;}
+/* 按钮样式,带角标的 */
+.hButtonSpan{display: inline-block;}
+.hButtonLabel{
+	height: 18px; line-height: 18px; padding: 0 6px; border-radius: 9px; -webkit-border-radius: 9px; transform: translateY(0.5); -webkit-transform: translateY(0.5);
+	display: inline-block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 按钮，块按钮，空背景，无圆角 */
+.hButtonChunk{
+	min-width: 120px; -webkit-touch-callout: none; -webkit-appearance: none; -webkit-user-select: none;
+	width: 100%;
+	outline-width: 0;
+	padding-top: 12px; padding-bottom: 12px;
+	padding-left: 20px; padding-right: 20px;
+}
+/* ********************************************************************************切换开关******************************************************************************** */
+.hSwitch{
+	-webkit-touch-callout: none; cursor: pointer; overflow: hidden; width: 46px; height: 26px; border: 1px solid #dddddd; box-shadow: #dfdfdf 0 0 0 0 inset; border-radius: 13px; background-clip: content-box; -webkit-appearance: none; -webkit-user-select: none; outline: none; transition: border cubic-bezier(0, 0, 0, 1) 0.2s, box-shadow cubic-bezier(0, 0, 0, 1) 0.2s; -webkit-transition: border cubic-bezier(0, 0, 0, 1) 0.2s, box-shadow cubic-bezier(0, 0, 0, 1) 0.2s;
+	position: relative;
+	background-color: white;
+}
+.hSwitch:before { width: 24px; height: 24px; position: absolute; top: 0; left: 0; border-radius: 13px; -webkit-border-radius: 13px; background-color: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); content: ''; transition: left 0.2s; -webkit-transition: left 0.2s; text-transform: uppercase; }
+.hSwitch:checked { transition: border ease 0.2s, box-shadow ease 0.2s, background-color ease 0.6s; -webkit-transition: border ease 0.2s, box-shadow ease 0.2s, background-color ease 0.6s; }
+.hSwitch:checked:before { left: 20px; transition: left 0.2s; -webkit-transition: left 0.2s; }
+/*带On Off的滑块 */
+.hSwitch.hSwitchOffEn { width: 66px; height: 28px; }
+.hSwitch.hSwitchOffEn:before, .hSwitch.hSwitchOffEn:before { content: "Off"; font-size: 1.6rem; color: #999; text-indent: 30px; width: 26px; height: 26px; border-radius: 14px; -webkit-border-radius: 14px; line-height: 28px; }
+.hSwitch.hSwitchOffEn:checked:before, .hSwitch.hSwitchOffCn:checked:before { left: 38px; content: "On"; text-indent: -27px; color: #fff; }
+.hSwitch.hSwitchOffCn { width: 60px; height: 28px; }
+.hSwitch.hSwitchOffCn:before { content: "关"; text-indent: 30px; }
+.hSwitch.hSwitchOffCn:checked:before { left: 32px; content: "开"; text-indent: -22px; }
+.hSwitch:before { width: 24px; height: 24px; position: absolute; top: 0; left: 0; border-radius: 13px; -webkit-border-radius: 13px; background-color: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); content: ''; transition: left 0.2s; -webkit-transition: left 0.2s; text-transform: uppercase; }
+.hSwitch:checked { transition: border ease 0.2s, box-shadow ease 0.2s, background-color ease 0.6s; -webkit-transition: border ease 0.2s, box-shadow ease 0.2s, background-color ease 0.6s; }
+.hSwitch:checked:before { left: 20px; transition: left 0.2s; -webkit-transition: left 0.2s; }
+.hSwitch.hFontColor_black:checked { border-color: black; box-shadow: black 0 0 0 26px inset; background-color: black; }
+.hSwitch.hFontColor_color1:checked { border-color: #009fd9; box-shadow: #009fd9 0 0 0 26px inset; background-color: #009fd9; }
+.hSwitch.hFontColor_color2:checked { border-color: #ff7f8a; box-shadow: #ff7f8a 0 0 0 26px inset; background-color: #ff7f8a; }
+.hSwitch.hFontColor_color3:checked { border-color: #3c4146; box-shadow: #3c4146 0 0 0 26px inset; background-color: #3c4146; }
+.hSwitch.hFontColor_color4:checked { border-color: #ffa977; box-shadow: #ffa977 0 0 0 26px inset; background-color: #ffa977; }
+.hSwitch.hFontColor_color5:checked { border-color: #4db7ad; box-shadow: #4db7ad 0 0 0 26px inset; background-color: #4db7ad; }
+.hSwitch.hFontColor_color6:checked { border-color: #337ab7; box-shadow: #337ab7 0 0 0 26px inset; background-color: #337ab7; }
+.hSwitch.hFontColor_color7:checked { border-color: #d9534f; box-shadow: #d9534f 0 0 0 26px inset; background-color: #d9534f; }
+.hSwitch.hFontColor_color8:checked { border-color: #fe840c; box-shadow: #fe840c 0 0 0 26px inset; background-color: #fe840c; }
+.hSwitch.hFontColor_color9:checked { border-color: #5cb85c; box-shadow: #5cb85c 0 0 0 26px inset; background-color: #5cb85c; }
+/* ********************************************************************************复选框******************************************************************************** */
+.hCheckbox{
+	cursor: pointer; -webkit-touch-callout: none; width: 22px; height: 22px; text-align: center; line-height: 22px; border: 1px solid #dddddd; box-shadow: #dfdfdf 0 0 0 0 inset; background-clip: content-box; -webkit-appearance: none; -webkit-user-select: none; outline: none; transition: border cubic-bezier(0, 0, 0, 1) 0.2s, box-shadow cubic-bezier(0, 0, 0, 1) 0.2s; -webkit-transition: border cubic-bezier(0, 0, 0, 1) 0.2s, box-shadow cubic-bezier(0, 0, 0, 1) 0.2s; background: transparent;
+	vertical-align: middle;
+	font-size: 1.8rem;
+}
+/*复选框，复选框*/
+.hCheckbox:checked, .hRadio:checked { transition: border ease 0.2s, box-shadow ease 0.2s, background-color ease 0.6s; -webkit-touch-callout: none; -webkit-transition: border ease 0.2s, box-shadow ease 0.2s, background-color ease 0.6s; }
+.hCheckbox:checked:before, .hRadio:checked:before { width: 22px; height: 22px; line-height: 22px; content: '\2713'; -webkit-touch-callout: none; }
+/*空背景样式*/
+.hCheckbox.hCheckbox_null.hFontColor_black:checked, .hRadio.hRadio_null.hFontColor_black:checked { border-color: black; }
+.hCheckbox.hCheckbox_null.hFontColor_color1:checked, .hRadio.hRadio_null.hFontColor_color1:checked { border-color: #009fd9; }
+.hCheckbox.hCheckbox_null.hFontColor_color2:checked, .hRadio.hRadio_null.hFontColor_color2:checked { border-color: #ff7f8a; }
+.hCheckbox.hCheckbox_null.hFontColor_color3:checked, .hRadio.hRadio_null.hFontColor_color3:checked { border-color: #3c4146; }
+.hCheckbox.hCheckbox_null.hFontColor_color4:checked, .hRadio.hRadio_null.hFontColor_color4:checked { border-color: #ffa977; }
+.hCheckbox.hCheckbox_null.hFontColor_color5:checked, .hRadio.hRadio_null.hFontColor_color5:checked { border-color: #4db7ad; }
+.hCheckbox.hCheckbox_null.hFontColor_color6:checked, .hRadio.hRadio_null.hFontColor_color6:checked { border-color: #337ab7; }
+.hCheckbox.hCheckbox_null.hFontColor_color7:checked, .hRadio.hRadio_null.hFontColor_color7:checked { border-color: #d9534f; }
+.hCheckbox.hCheckbox_null.hFontColor_color8:checked, .hRadio.hRadio_null.hFontColor_color8:checked { border-color: #fe840c; }
+.hCheckbox.hCheckbox_null.hFontColor_color9:checked, .hRadio.hRadio_null.hFontColor_color9:checked { border-color: #5cb85c; }
+/*有背景样式*/
+.hCheckbox.hCheckboxFill.hFontColor_black:checked, .hRadio.hRadioFill.hFontColor_black:checked { color: #fff; border-color: black; box-shadow: black 0 0 0 26px inset; background-color: black; }
+.hCheckbox.hCheckboxFill.hFontColor_color1:checked, .hRadio.hRadioFill.hFontColor_color1:checked { color: #fff; border-color: #009fd9; box-shadow: #009fd9 0 0 0 26px inset; background-color: #009fd9; }
+.hCheckbox.hCheckboxFill.hFontColor_color2:checked, .hRadio.hRadioFill.hFontColor_color2:checked { color: #fff; border-color: #ff7f8a; box-shadow: #ff7f8a 0 0 0 26px inset; background-color: #ff7f8a; }
+.hCheckbox.hCheckboxFill.hFontColor_color3:checked, .hRadio.hRadioFill.hFontColor_color3:checked { color: #fff; border-color: #3c4146; box-shadow: #3c4146 0 0 0 26px inset; background-color: #3c4146; }
+.hCheckbox.hCheckboxFill.hFontColor_color4:checked, .hRadio.hRadioFill.hFontColor_color4:checked { color: #fff; border-color: #ffa977; box-shadow: #ffa977 0 0 0 26px inset; background-color: #ffa977; }
+.hCheckbox.hCheckboxFill.hFontColor_color5:checked, .hRadio.hRadioFill.hFontColor_color5:checked { color: #fff; border-color: #4db7ad; box-shadow: #4db7ad 0 0 0 26px inset; background-color: #4db7ad; }
+.hCheckbox.hCheckboxFill.hFontColor_color6:checked, .hRadio.hRadioFill.hFontColor_color6:checked { color: #fff; border-color: #337ab7; box-shadow: #337ab7 0 0 0 26px inset; background-color: #337ab7; }
+.hCheckbox.hCheckboxFill.hFontColor_color7:checked, .hRadio.hRadioFill.hFontColor_color7:checked { color: #fff; border-color: #d9534f; box-shadow: #d9534f 0 0 0 26px inset; background-color: #d9534f; }
+.hCheckbox.hCheckboxFill.hFontColor_color8:checked, .hRadio.hRadioFill.hFontColor_color8:checked { color: #fff; border-color: #fe840c; box-shadow: #fe840c 0 0 0 26px inset; background-color: #fe840c; }
+.hCheckbox.hCheckboxFill.hFontColor_color9:checked, .hRadio.hRadioFill.hFontColor_color9:checked { color: #fff; border-color: #5cb85c; box-shadow: #5cb85c 0 0 0 26px inset; background-color: #5cb85c; }
+/* ********************************************************************************单选框******************************************************************************** */
+.hRadio{
+	cursor: pointer; -webkit-touch-callout: none; width: 22px; height: 22px; text-align: center; line-height: 22px; border: 1px solid #dddddd; box-shadow: #dfdfdf 0 0 0 0 inset; background-clip: content-box; -webkit-appearance: none; -webkit-user-select: none; outline: none; transition: border cubic-bezier(0, 0, 0, 1) 0.2s, box-shadow cubic-bezier(0, 0, 0, 1) 0.2s; -webkit-transition: border cubic-bezier(0, 0, 0, 1) 0.2s, box-shadow cubic-bezier(0, 0, 0, 1) 0.2s;
+	vertical-align: middle;
+	font-size: 1.8rem;
+}
+/*性别选择*/
+.hRadio.hMan:checked:before { content: '\2642';}
+.hRadio.hGirl:checked:before { content: '\2640';}
+/* ********************************************************************************区域滑块******************************************************************************** */
+/*滑块颜色*/
+.hRegionSliderNoIcon.hFontColor_black::-webkit-slider-thumb { border-color: black; background-color: black;}
+.hRegionSliderNoIcon.hFontColor_color1::-webkit-slider-thumb { border-color: #009fd9; background-color: #009fd9;}
+.hRegionSliderNoIcon.hFontColor_color2::-webkit-slider-thumb { border-color: #ff7f8a; background-color: #ff7f8a;}
+.hRegionSliderNoIcon.hFontColor_color3::-webkit-slider-thumb { border-color: #3c4146; background-color: #3c4146;}
+.hRegionSliderNoIcon.hFontColor_color4::-webkit-slider-thumb { border-color: #ffa977; background-color: #ffa977;}
+.hRegionSliderNoIcon.hFontColor_color5::-webkit-slider-thumb { border-color: #4db7ad; background-color: #4db7ad;}
+.hRegionSliderNoIcon.hFontColor_color6::-webkit-slider-thumb { border-color: #337ab7; background-color: #337ab7;}
+.hRegionSliderNoIcon.hFontColor_color7::-webkit-slider-thumb { border-color: #d9534f; background-color: #d9534f;}
+.hRegionSliderNoIcon.hFontColor_color8::-webkit-slider-thumb { border-color: #fe840c; background-color: #fe840c;}
+.hRegionSliderNoIcon.hFontColor_color9::-webkit-slider-thumb { border-color: #5cb85c; background-color: #5cb85c;}
+/* 行滑动，不带图标 */
+.hRegionSliderNoIcon{
+	cursor: pointer; -webkit-touch-callout: none; height: 4px; margin: 12px 0; background-color: #c8c7cc; appearance: none !important; -webkit-appearance: none !important;
+	position: relative;
+	vertical-align: middle;
+}
+.hRegionSliderNoIcon::-webkit-slider-thumb{
+	 width: 25px; height: 25px; border-radius: 50%; -webkit-border-radius: 50%; border-color: #1abc9c; background-color: #1abc9c; appearance: none !important; -webkit-appearance: none !important;
+}
+/*行滑动，椭方拖动*/
+.hRegionSliderNoIcon.hrangeSquare{
+	 height: 10px; margin: 3px 0;
+}
+.hRegionSliderNoIcon.hrangeSquare::-webkit-slider-thumb{
+	 width: 32px; height: 16px; border-radius: 3px; -webkit-border-radius: 3px;
+}
+/* ********************************************************************************输入框******************************************************************************** */
+textarea.hTextBox { min-height: 150px; resize: none; }
+.hTextBox{
+	appearance: none !important; -webkit-appearance: none !important; outline: 0; -webkit-appearance: none; -webkit-tap-highlight-color: transparent; -webkit-overflow-scrolling: touch;
+	vertical-align: middle;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	border-width: 0; outline-width: 0;
+	outline-width: 0;
+	padding: 12px;
+}
+
+/*单行，不带线或者缩进线*/
+.hTextBoxDiv_Bottom_10{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	margin-bottom: 10px;
+}
+/*单行，带文字或icon，带线*/
+.hTextBoxDiv_both_after{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+}
+.hTextBoxDiv_both_after:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+/*单行，带文字或icon，带缩进线*/
+.hTextBoxDiv_bottom_left_10{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+}
+.hTextBoxDiv_bottom_left_10:after{
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	margin-left: 10px;
+}
+
+/*文字，icon，span*/
+.hTextBoxSpan_left{
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	padding-left: 10px;
+	background-color: white;
+}
+.hTextBoxSpan_right{
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	padding-right: 10px;
+	background-color: white;
+}
+.hTextBoxIcon{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+.hTextBoxIcon_text{
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	padding-right: 10px;
+	background-color: white;
+}
+/* ********************************************************************************下拉列表******************************************************************************** */
+/* div与输入框的hTextBoxDivBottom_10样式共用 */
+/* input与输入框的hTextBox样式共用 */
+/* span与输入框的hTextBoxSpan_right样式共用 */
+.hDropdownbox{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* ********************************************************************************N宫格******************************************************************************** */
+/* 包裹宫格的div样式 H-n-grid*/
+.hNGrid{clear: both;overflow: auto;}
+/* 包裹宫格的div样式 H-clear-both */
+.hClearBoth{clear: both;width: 100%;display: table;}
+.hGongGe{
+	display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	float: left;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	padding-top: 10px; padding-bottom: 10px;
+}
+/* 行块元素水平对齐 */
+.hCenter{
+	display: block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; display: box; box-orient: horizontal; box-pack: center;
+}
+/* ********************************************************************************功能菜单******************************************************************************** */
+/* 椭圆，单行 */
+/* 最大的div，包裹一组所有的菜单 */
+.hFlexboxHorizontal{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	text-align: center;
+	padding-top: 10px; padding-bottom: 10px;
+}
+/* 包裹一个菜单 */
+.hFlexMenuItem{-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;}
+/* 包裹图标的span样式 */
+.hCenterAll{
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	margin-left: auto; margin-right: auto;
+	height: 42px; width: 42px;
+}
+/* 菜单字体样式 */
+.hMenuFont{display: block;margin-top: 5px;font-size: 1.3rem;}
+/* 可左右滑动，椭圆、单行 ,的菜单	*/
+/* 最外层的div	*/
+.hSwiper{width: 100%;-webkit-overflow-scrolling: touch; overflow: scroll;}
+/* 倒数第二层的样式 */
+.swiperContainer{margin:0 auto;position:relative;overflow:hidden;z-index:1;width: 100%;height: 100%;position: relative;}
+/* ********************************************************************************文字大小******************************************************************************** */
+
+/* ********************************************************************************文本列表******************************************************************************** */
+/*点击高亮*/
+.hTouch_active { }
+.hTouch_active:active { background: #f4f4f4; }
+
+.hTextList{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+.hTextList:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+.hTextItem{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding-left: 10px; padding-right: 10px;
+	padding-top: 12px; padding-bottom: 12px;
+}
+/*带箭头文本*/
+.hTextIcon{
+	padding-right: 5px;
+	display: block;
+}
+.hTextIconFont{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	color: #ccc;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/*左缩进线*/
+.hTextListLeftShrink{
+	position: relative; overflow: hidden;
+}
+.hTextListLeftShrink:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	margin-left: 10px;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+/*两边线缩进*/
+.hTextListBothSides{
+	position: relative; overflow: hidden;
+}
+.hTextListBothSides:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	margin-left: 10px; margin-right: 10px;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+	margin-left: 10px; margin-right: 30px;
+}
+/*带左右间隙*/
+.hTextAboutHorizontalBoth_10{
+	padding-left: 10px; padding-right: 10px;
+}
+/*卡片效果*/
+.hTextCardEffect{
+	padding-left: 10px; padding-right: 10px;
+	border: 1px solid #eee;
+	border-radius: 5px; -webkit-border-radius: 5px;
+	overflow: hidden;
+}
+/*带图标*/
+.hTextLeftUserIcon{
+	display: block;
+	margin-left: 10px;
+}
+.hTextLeftSettingIcon{
+	display: block;
+	margin-left: 10px;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+}
+.hTextLeftIconFont{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/*带块图标*/
+.hTextBlockIcon{
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	display: block;
+	margin-left: 10px;
+}
+/*显示1-5行*/
+.hTextWordDiv{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+.hTextWordDiv:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+.hTextWordRow{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding-left: 10px; padding-right: 10px;
+	padding-top: 12px; padding-bottom: 12px;
+}
+.hTextWordShowRow_1, .hTextWordShowRow_2, .hTextWordShowRow_3, .hTextWordShowRow_4, .hTextWordShowRow_5 { overflow: hidden; text-overflow: ellipsis; display: box; display: -webkit-box; word-wrap: break-word; white-space: normal !important; -webkit-box-orient: vertical; }
+.hTextWordShowRow_1 { line-clamp: 1; -webkit-line-clamp: 1; }
+.hTextWordShowRow_2 { line-clamp: 2; -webkit-line-clamp: 2; }
+.hTextWordShowRow_3 { line-clamp: 3; -webkit-line-clamp: 3; }
+.hTextWordShowRow_4 { line-clamp: 4; -webkit-line-clamp: 4; }
+.hTextWordShowRow_5 { line-clamp: 5; -webkit-line-clamp: 5; }
+/* ********************************************************************************轮播图******************************************************************************** */
+/* 轮播图第三层div */
+.swiperWrapper{transform: translate3d(-750px, 0px, 0px); transition-duration: 0ms;}
+/* 3d轮播图   */
+.opacity_0{opacity: 0; transition-duration: 0ms;}
+.opacity_1{opacity: 1; transition-duration: 0ms;}
+.shadow{height: 375px; transform: translate3d(0px, 207.5px, -187.5px) rotateX(90deg) rotateZ(0deg) scale(0.94);}
+/* ******************************************************************TAB菜单*********************************************************************************************** */
+/* 最大的div，包裹一组所有的菜单 */
+.hHorizontal{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	text-align: center;
+}
+.hTabFlexItem{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	 -webkit-box-orient: horizontal; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	padding-top: 10px; padding-bottom: 10px;
+	border-width: 0 0 2px  0;
+}
+.tabSwiperContainer{position: absolute;width: 100%;height: 100%;}
+.tabCenterAll{
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	border-width: 0 0 2px  0;
+}
+.hTabFlexboxHorizontal{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding-left: 10px; padding-right: 10px;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.tabCenterAll:active { background: #f4f4f4; }
+.hTabFlexItem:active { background: #f4f4f4; }
+.hTabFlexItem_8{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	padding-top: 8px; padding-bottom: 8px;
+}
+/*带角标*/
+.hTextSignSpan label{height: 18px; line-height: 18px; padding: 0 6px; border-radius: 9px; -webkit-border-radius: 9px; transform: translateY(0.5); -webkit-transform: translateY(0.5);}
+.hTextSignSpan.hTextSignSpan_null {width: 8px; height: 8px;}
+.hTextDisplayBlock { display: block; }
+.hTextSignSpanRight_margin_right_5{margin-right: 5px;}
+.hTextSignLabel{
+	display: inline-block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+.hTextSignCircle{border-radius: 50%; -webkit-border-radius: 50%;}
+/*带表单*/
+.hTextForm{
+	position: relative;
+	margin-right: 10px;
+}
+.hTextFormFrame{
+	vertical-align: middle;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	margin-right: 10px;
+}
+/* ********************************************************************************相册列表******************************************************************************** */
+.hPhotoPosition_10{
+	padding-left: 10px; padding-right: 10px;
+}
+.hPhotoPositionLeft_10{
+	padding-left: 10px;
+}
+.hPhotoPositionLeft_5{
+	padding-left: 5px;
+}
+.hPhotoListDiv{
+	clear: both;
+	width: 100%;
+	display: table;
+	box-sizing: border-box;
+}
+.hPhotoListImage{
+	 width: 100%;
+	 display: block;
+}
+/*一列，无图片说明*/
+.hPhotoListDiv_1_nosay{
+	 float: left;
+	 box-sizing: border-box; -webkit-box-sizing: border-box;
+	 width: 100%;
+	 display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	 margin-bottom: 10px;
+}
+/*两列，无图片说明*/
+.hPhotoListDiv_2_nosay{
+	display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	float: left;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	width: 50%;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
+/*三列，无图片说明*/
+.hPhotoListDiv_3_nosay{
+	display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	float: left;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	width: 33.33333333333333%;
+	margin-bottom: 10px;
+	padding-right: 10px;
+}
+/*四列，无图片说明*/
+.hPhotoListDiv_4_nosay{
+	display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	float: left;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	width: 25%;
+	padding-right: 5px;
+	margin-bottom: 5px;
+}
+/*五列，无图片说明*/
+.hPhotoListDiv_5_nosay{
+	display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	float: left;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	width: 20%;
+	padding-right: 5px;
+	margin-bottom: 5px;
+}
+/*？列，有图片说明*/
+.hPhotoListDiv_haveSay{
+	text-align: center;
+	padding-top: 5px;
+}
+/*可左右滑动，有或者无图片说明*/
+.hPhotoSlide_div_1{
+	padding-left: 10px; padding-right: 10px;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.hPhotoSlide_div_2{
+	position: relative;
+	width: 100%;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	-webkit-overflow-scrolling: touch; overflow: scroll;
+}
+.hPhotoSlide_div_3{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.hPhotoBorderBox{box-sizing: border-box; -webkit-box-sizing: border-box;}
+.hPhotoSlideImage{
+	 width: 100%;
+	 display: block;
+}
+/* ********************************************************************************提示对话框******************************************************************************** */
+/* 包裹button的div */
+.hButtonDiv{margin-left: 10px; margin-right: 10px;margin-top: 10px;}
+/* ********************************************************************************信息提示******************************************************************************** */
+.hMsgIconBox{
+	position: relative;
+	display: inline-block;
+	float: left;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	padding-left: 5px;
+	z-index: 100;
+}
+.hMsgIconRightBox{
+	position: relative;
+	display: inline-block;
+	float: right;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	z-index: 100;
+}
+.hMsgFlexItem{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding: 10px;
+	overflow: hidden; text-overflow: ellipsis; display: box; display: -webkit-box; word-wrap: break-word; white-space: normal !important; -webkit-box-orient: vertical;
+}
+/* ********************************************************************************进度条******************************************************************************** */
+.hProgress{width: 100%;line-height: 0;overflow: hidden;}
+/* ********************************************************************************常见搜索******************************************************************************** */
+/* 包裹搜索框和按钮 */
+.hSearch{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+/* 搜索框样式 */
+.hSearchInput{
+	border-width: 0; outline-width: 0;
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding-left: 10px; padding-right: 10px;
+	padding-top: 5px; padding-bottom: 5px;
+}
+/* 搜索框按钮 */
+.hSearchBut_color1{outline-width: 0;padding-top: 5px; padding-bottom: 5px;padding-left: 20px; padding-right: 20px;border: 1px solid #009fd9;min-width:0;}
+.hSearchBut_color1:active { border: 1px solid #408CBB;background-color: #408CBB;color: #fff;}
+/* 搜索样式三 */
+.hSearchTextDiv{
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	text-align: center;
+}
+/* 搜索样式三，图标字体样式 */
+.hSearchIconfont { font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale; }
+/* 搜索样式三，输入框样式 */
+.hSearchInp{
+	border-width: 0; outline-width: 0;
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding-left: 10px; padding-right: 10px;
+	padding-top: 5px; padding-bottom: 5px;
+}
+/* 搜索样式三，输入框取消两个字的样式 */
+.hSearchSpan{
+	display: block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	padding-left: 10px; padding-right: 10px;
+}
+/* ********************************************************************************背景颜色******************************************************************************** */
+/* 背景颜色，背景的样式 */
+.hBgColorStyle{padding: 10px;margin-left: 10px; margin-right: 10px;margin-top: 5px; margin-bottom: 5px;box-sizing: border-box; -webkit-box-sizing: border-box;}
+/* ********************************************************************************日期选择******************************************************************************** */
+/* 日期选择，最外层样式 */
+.hDateSelectOutlayer{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	margin-bottom: 10px;
+}
+/* 日期选择,input样式 */
+.hDateSelectTextbox{
+	appearance: none !important; -webkit-appearance: none !important; outline: 0; -webkit-appearance: none; -webkit-tap-highlight-color: transparent; -webkit-overflow-scrolling: touch;
+	vertical-align: middle;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	border-width: 0; outline-width: 0;
+	outline-width: 0;
+	padding: 12px;
+}
+/* ********************************************************************************图文列表******************************************************************************** */
+.hImageTextPhoto{
+	padding-top: 10px; padding-bottom: 10px;
+}
+/*纯文字*/
+.hPlainTextDiv_1{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+}
+.hPlainTextDiv_1:after{
+	 display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	 border-bottom: 1px solid #f4f4f4;
+	 right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+.hPlainTextDiv_2{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding: 10px;
+}
+.hPlainTextDiv_3{
+	overflow: hidden; text-overflow: ellipsis; display: box; display: -webkit-box; word-wrap: break-word; white-space: normal !important; -webkit-box-orient: vertical;
+	line-clamp: 2; -webkit-line-clamp: 2;
+	margin-top: 2px;
+}
+.hPlainTextStyle{
+	font-weight: normal;
+	font-weight: 500;
+	display: block;
+}
+/*纯文字，带箭头*/
+.hPlainTextSpan{
+	padding-right: 5px;
+	display: block;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+.hPlainTextIcon{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+}
+/*带左图*/
+.hImageTextLeftImg{
+	display: block;
+	margin-left: 10px;
+}
+/*带右图*/
+.hImageTextRightImg{
+	display: block;
+	margin-right: 10px;
+}
+/*带发布时间*/
+.hImgTxtReleaseTime_1{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+}
+.hImgTxtReleaseTime_1:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+	clear: both;
+}
+.hImgTxtReleaseTime_imgDiv{
+	padding-top: 10px; padding-bottom: 10px;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.hImgTxtReleaseTime_2{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding: 10px;
+	position: relative;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.hImgTxtReleaseTime_txt{
+	font-weight: normal;
+	font-weight: 500;
+}
+.hImgTxtReleaseTime_time{
+	position: absolute;
+	margin: 0;
+	z-index: 10;
+}
+/* ********************************************************************************图文列表******************************************************************************** */
+.hWaterfallImg_bigDiv{
+	display: table;
+	margin-left: 10px;
+	clear: both;
+}
+.hWaterfallImg_wfBox{
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.hWaterfallImg_wfBox_div{
+	line-height: normal;
+	padding: 10px;
+}
+/* ********************************************************************************评价评分********************************************************************************** */
+.hEvaluate_p1{
+	padding-left: 10px; padding-right: 10px;
+	text-align: center;
+}
+.hEvaluate_div{
+	padding: 10px;
+	text-align: center;
+}
+.hEvaluate_icon{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	margin-right: 5px;
+}
+.hEvaluate_p2{
+	padding-left: 10px; padding-right: 10px;
+	text-align: center;
+}
+/* ********************************************************************************评论列表********************************************************************************** */
+.hCommentList_div2{
+	padding-top: 8px; padding-bottom: 8px;
+}
+.hCommentList_img{
+	display: block;
+	margin-left: 10px;
+	border-radius: 50%; -webkit-border-radius: 50%;
+}
+.hCommentList_div3{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	 margin-top: 8px; margin-bottom: 8px;
+	 margin: 10px;
+}
+.hCommentList_div4{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.hCommentList_div5{
+	margin-top: 5px;
+}
+.hCommentList_div6{
+	padding-top: 3px;
+}
+.hCommentList_div7{
+	padding: 5px;
+	margin-top: 5px; margin-bottom: 5px;
+	border-radius: 3px; -webkit-border-radius: 3px;
+}
+.hCommentList_spanLeft{
+	display: block;
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	text-align: left;
+}
+.hCommentList_spanRight{
+	display: block;
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	text-align: right;
+}
+.hCommentList_span1{
+	float: right;
+}
+/* ********************************************************************************底部弹出菜单********************************************************************************** */
+.hbottomEjectMenu_p{
+	padding-left: 10px; padding-right: 10px;
+}
+.hbottomEjectMenu_div{
+	 margin-left: 10px; margin-right: 10px;
+	 margin-top: 10px;
+}
+.hbottomEjectMenu_button{
+	min-width: 120px; -webkit-touch-callout: none; -webkit-appearance: none; -webkit-user-select: none;
+	width: 100%;
+	outline-width: 0;
+	padding-top: 12px; padding-bottom: 12px;
+	padding-left: 20px; padding-right: 20px;
+	border-radius: 3px; -webkit-border-radius: 3px;
+}
+/* ********************************************************************************拖动排序********************************************************************************** */
+.hDragSort_span{
+	padding-right: 10px;
+	display: block;
+}
+.hDragSort_icon{
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* *******************************************************************************折叠面板********************************************************************************** */
+/* 折叠面板，最外层样式 ，设置面板的边框*/
+.hAccordionTitleBox{margin-left: 10px; margin-right: 10px;overflow: hidden;margin-top: 10px;}
+/* 折叠面板，上方列表的样式  */
+.hAccordionTitle{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* 追加样式 */
+.hAccordionTitle:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+}
+@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+    .hAccordionTitle:after, .hAccordionMain:after, .hIconGrid:after, .hIconGridStyle:after { right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5); }
+}
+/*点击高亮*/
+.hAccordionTitle:active { background: #f4f4f4; }
+.hAccordionTitleIcon{
+	position: relative;
+	display: inline-block;
+	float: right;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	z-index: 100;
+}
+.hAccordionTitleIcon:active { background: #f4f4f4; }
+/* 折叠面板，包裹折叠数据的样式  */
+.hAccordionMain{
+	padding-top: 10px;
+	position: relative; overflow: hidden;
+}
+.hAccordionMain:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+}
+/* *******************************************************************************内置图标********************************************************************************** */
+/* 内置图标,网格布局 */
+.hIconGrid{position: relative; overflow: hidden;clear: both;overflow: auto;}
+.hIconGrid:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-top: 1px solid #f4f4f4;
+}
+
+/* 内置图标,网格样式 */
+.hIconGridStyle{
+	display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;
+	float: left;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	position: relative; overflow: hidden;
+	padding-top: 10px; padding-bottom: 10px;
+	height: 100px;
+}
+.hIconGridStyle:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-right: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
+}
+/*点击高亮*/
+.hIconGridStyle:active { background: #f4f4f4; }
+/* 内置图标,图标边框样式 */
+.hIconBoxStyle{display: block;display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; display: box; box-orient: horizontal; box-pack: center;}
+/* 图标样式 */
+.hIconStyle{
+	font-family: "iconfont" !important;font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: 0.2px; -moz-osx-font-smoothing: grayscale;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+}
+/* *******************************************************************************时间轴********************************************************************************** */
+/* 时间轴 */
+.hTimeline{background: #f4f5f9;padding-left: 10px; padding-right: 10px;position: relative; overflow: hidden;}
+.hTimeline:after { border-right: 1px solid #f4f4f4; }
+.hTimeline:after { border-right: 4px solid #5cb85c; margin-right: 60px; }
+.hTimeline:after { display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;}
+@media screen and (-webkit-min-device-pixel-ratio:1.5) {
+    .hTimeline:after, .hTimelineItem:after, .hTimelineHeader:after { right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5); }
+}
+.hTimelineItem{
+	min-height: 80px;
+	z-index: 100;
+	margin-top: 15px;
+	position: relative; overflow: hidden;
+	animation: scalebig 0.2s linear; -webkit-animation: scalebig 0.2s linear; transform-origin: 50% 50%; -webkit-transform-origin: 50% 50%;
+}
+.hTimelineItem:after{display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;}
+.hTimelineItem:after{border: 1px solid #d7d7d7; border-radius: 6px; overflow: hidden;}
+.hTimelineDotline{width: 12px; height: 50px; top: 10px; right: 14px;position: absolute;z-index: 1000;}
+.hTimelineDot{background: #f4f5f9;width: 6px; height: 6px; right: 3px; top: 0; border: 1px solid #9cf59c;position: absolute;z-index: 1000;border-radius: 50%; -webkit-border-radius: 50%;}
+.hTimelineDot:last-child { top: 40px; }
+.hTimelineLine{width: 2px; height: 48px; right: 6px; top: 0; background: #5cb85c;position: absolute;z-index: 10000;}
+.hTimelineBigdot{
+	border: 1px solid #9cf59c; height: 12px; width: 12px; right: 0; top: 17px;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	position: absolute;
+	z-index: 100000;
+}
+.hTimelineBigdotChild{height: 8px; width: 8px; background: #5cb85c;border-radius: 50%; -webkit-border-radius: 50%;}
+.hTimelineHeader{
+	border-radius: 6px 6px 0 0; overflow: hidden;
+	overflow: hidden; text-overflow: ellipsis; display: box; display: -webkit-box; word-wrap: break-word; white-space: normal !important; -webkit-box-orient: vertical;
+	line-clamp: 1; -webkit-line-clamp: 1;
+	padding: 10px;
+	line-height: normal;
+	position: relative; overflow: hidden;
+}
+.hTimelineHeader:after {
+	margin-right: 40px; border-bottom: 1px solid #d7d7d7;
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+}
+.hTimelineContainer{padding-right: 30px;}
+.hTimelineFooter{background: #f4f4f4; border-radius: 0 0 6px 6px; overflow: hidden;line-height: normal;}
+/* *******************************************************************************图片懒加载********************************************************************************** */
+/* 图片懒加载，框样式 */
+.hImgLazyLoading{width: 100%;clear: both;display: table;box-sizing: border-box; -webkit-box-sizing: border-box;padding-left: 10px;padding-top: 10px;}
+.hImgLazyLoadingCell{display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;float: left;box-sizing: border-box; -webkit-box-sizing: border-box;padding-right: 10px;margin-bottom: 10px;}
+.hImgLazyLoadingCellImg{width: 100%;display: block;}
+/* ********************************************************************************切换选项卡********************************************************************************** */
+.hSwitchOption_body{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.hSwitchOption_div{
+	width: 80px;
+	height: 100%;
+	-webkit-overflow-scrolling: touch; overflow: scroll;
+	position: relative; overflow: hidden;
+}
+.hSwitchOption_div1：after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-right: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+.hSwitchOption_switch_ul{
+	width: 100%;
+	min-height: 0; height: auto; overflow: hidden;
+}
+.hSwitchOption_channel_item{
+	padding: 10px;
+	font-weight: 500;
+	position: relative; overflow: hidden;
+	width: 100%;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.hSwitchOption_channel_item:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+.hSwitchOption_option_div1{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	height: 100%;
+	-webkit-overflow-scrolling: touch; overflow: scroll;
+}
+.hSwitchOption_option_div2{
+	padding-top: 10px; padding-bottom: 10px;
+	padding-left: 10px;
+}
+.hSwitchOption_option_div3{
+	clear: both;
+	width: 100%;
+	display: table;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.hSwitchOption_display{padding: 10px;display: none !important;}
+.hSwitchOption_call{
+	display: box; display: -webkit-box; display: -webkit-flex; display: flex; -webkit-box-orient: horizontal; -webkit-flex-flow: row; flex-flow: row; width: 100%; -webkit-flex-direction: row; flex-direction: row; box-sizing: border-box; -webkit-box-sizing: border-box;
+	box-sizing: border-box; -webkit-box-sizing: border-box;
+	position: relative; overflow: hidden;
+	clear: both;
+	padding-left: 10px; padding-right: 10px;
+	padding-top: 8px; padding-bottom: 8px;
+}
+.hSwitchOption_call:after{
+	display: block; content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; transform-origin: 0 0; transform: scale(1); -webkit-transform-origin: 0 0; -webkit-transform: scale(1); pointer-events: none;
+	border-bottom: 1px solid #f4f4f4;
+	right: -100%; bottom: -100%; transform: scale(0.5); -webkit-transform: scale(0.5);
+}
+.hSwitchOption_img{
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%; -webkit-border-radius: 50%;
+	border: 1px solid #f7f5f5;
+}
+.hSwitchOption_txtDiv{
+	-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;
+	padding-left: 10px; padding-right: 10px;
+	display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;
+	overflow: hidden;
+}
+.hSwitchOption_txtDiv2{width: 100%;}
+.hSwitchOption_txtStr{
+	font-weight: normal;
+	display: block;
+	font-weight: 500;
+}
+.hSwitchOption_txtDiv3{padding-top: 3px;}
+.hSwitchOption_txtDiv4{white-space: nowrap;}
+
+
+
+
+
+
+/* *****************************************产品列表 start********************************************** */
+.hProductList{clear:both;width:100%;display:table;box-sizing: border-box; -webkit-box-sizing: border-box;padding-left:5px;}
+.hProductList .hProductItem{display: table-cell; transform-style: preserve-3d; -webkit-transform-style: preserve-3d;float:left;box-sizing: border-box; -webkit-box-sizing: border-box;margin-bottom:5px;}
+.hProductList .hProductItem .hProductItemTxt{-webkit-box-flex: 1; -webkit-flex: 1; flex: 1; box-sizing: border-box; -webkit-box-sizing: border-box;text-align: left;display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-align: center; display: box; box-orient: horizontal; box-align: center;}
+/* *****************************************产品列表 end********************************************** */
+
+html,body{-webkit-tap-highlight-color:rgba(0, 0, 0, 0)!important;}/*解决ios点击元素后出现阴影或闪烁的问题*/
+.hOverflow_hidden{overflow: hidden;}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.file.FileInfoDao">
+
+    <resultMap id="FileInfo" type="com.sxgokit.rdf.model.domain.file.FileInfo">
+        <result column="file_id" property="fileId"/>
+        <result column="resource_id" property="resourceId"/>
+        <result column="file_name" property="fileName"/>
+        <result column="file_origin_name" property="fileOriginName" />
+        <result column="file_path" property="filePath" />
+        <result column="file_type" property="fileType" />
+        <result column="md5" property="md5" />
+        <result column="valid" property="valid" />
+        <result column="is_delete" property="isDelete" />
+        <result column="size" property="size" />
+        <result column="upload_time" property="uploadTime" />
+        <result column="delete_time" property="deleteTime" />
+        <result column="created_by" property="createdBy" />
+        <result column="created_date" property="createdDate" />
+        <result column="updated_by" property="updatedBy" />
+        <result column="updated_date" property="updatedDate" />
+    </resultMap>
+
+    <!-- 根据主键删除 -->
+    <delete id="deleteAll" parameterType="java.util.List">
+		DELETE FROM file_info
+		WHERE id in (
+        <foreach collection="list" item="item" index="index" separator=",">
+            #{item.id,jdbcType=DECIMAL},
+        </foreach>)
+	</delete>
+
+    <!-- 添加 -->
+    <insert id="insertFile" parameterType="com.sxgokit.rdf.model.domain.file.FileInfo">
+        INSERT INTO file_info
+        (resource_id,file_name, file_origin_name, file_path,file_type, md5, valid,is_delete,size, upload_time,delete_time,
+           created_by,created_date, updated_by, updated_date)
+        VALUES ( #{resourceId,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR},#{fileOriginName,jdbcType=VARCHAR},
+             #{filePath,jdbcType=VARCHAR}, #{fileType,jdbcType=VARCHAR}, #{md5,jdbcType=VARCHAR},#{valid,jdbcType=DECIMAL},#{isDelete,jdbcType=DECIMAL},
+             #{size,jdbcType=DECIMAL}, #{uploadTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR},
+             #{createdDate,jdbcType=TIMESTAMP},#{updatedBy,jdbcType=VARCHAR}, #{updatedDate,jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="findByFileName" resultMap="FileInfo" parameterType="java.lang.String">
+        SELECT *
+        FROM file_info
+        where file_name = #{fileName}
+    </select>
+    <select id="findByValid" resultMap="FileInfo" parameterType="java.lang.Integer">
+		SELECT *
+        FROM file_info
+        where valid = #{valid}
+	</select>
+
+    <select id="findByResourceId" resultMap="FileInfo" parameterType="java.lang.String">
+		SELECT *
+        FROM file_info
+        where resource_id = #{resourceId}
+	</select>
+
+</mapper>

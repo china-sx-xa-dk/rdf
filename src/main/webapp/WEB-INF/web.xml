@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>CKFinderConnectorServlet</servlet-name>
+        <servlet-class>com.sxgokit.rdf.plugins.ckfinder.CKFinderConnectorServlet</servlet-class>
+        <init-param>
+            <param-name>XMLConfig</param-name>
+            <param-value>/WEB-INF/config.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <param-name>configuration</param-name>
+            <param-value>com.sxgokit.rdf.plugins.ckfinder.CKFinderConfig
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CKFinderConnectorServlet</servlet-name>
+        <url-pattern>/static/ckfinder/core/connector/java/connector.java</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>FileUploadFilter</filter-name>
+        <filter-class>com.ckfinder.connector.FileUploadFilter</filter-class>
+        <init-param>
+            <param-name>sessionCookieName</param-name>
+            <param-value>JSESSIONID</param-value>
+        </init-param>
+        <init-param>
+            <param-name>sessionParameterName</param-name>
+            <param-value>jsessionid</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>FileUploadFilter</filter-name>
+        <url-pattern>/static/ckfinder/core/connector/java/connector.java</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>UserfilesDownloadServlet</servlet-name><!--文件下载需要对应后台的Servlet-->
+        <servlet-class>com.sxgokit.rdf.plugins.ckfinder.UserfilesDownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserfilesDownloadServlet</servlet-name><!--此处由config.xml的baseURl决定路径-->
+        <url-pattern>/static/userfiles/*</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>10</session-timeout>
+    </session-config>
+</web-app>

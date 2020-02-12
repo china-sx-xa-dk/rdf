@@ -1,0 +1,41 @@
+@charset "utf-8";
+* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+*:focus {outline: none;}
+/* fade */
+.jbox-fade{background-color:#000000;}
+/* drag */
+.jbox-drag{border:1px dashed #AAAAAA;}
+/* jbox */
+div.jbox {padding:0px;border:none;font-size:14px;font-family: '微软雅黑';box-shadow:0 0 5px #888;}
+/* border */
+div.jbox .jbox-border{background:none;display:none !important;}
+/* container */
+div.jbox .jbox-container{background-color:#FFFFFF;border:0px solid #0e90d2;}
+/* title-panel */
+div.jbox .jbox-title-panel{background:#0e90d2;border-bottom:0px solid #CCCCCC;padding:5px 0; height:35px !important;*height:25px !important;}
+div.jbox .jbox-title{font-weight:bold;color:#FFFFFF;padding-left: 25px !important; margin-left: 5px;}
+div.jbox .jbox-title-icon{background:url(images/jbox-title-icon.gif) no-repeat scroll 3px 5px transparent;}
+div.jbox .jbox-close,div.jbox .jbox-close-hover{background:url(images/jbox-close.png) no-repeat scroll 0px 0px transparent;width:16px !important;height:16px !important;top:10px !important;right:10px !important;}
+div.jbox .jbox-close-hover{background-position:-16px 0;}
+/* content */
+div.jbox .jbox-content{position:relative !important;min-height:30px;line-height:30px;color:#444444;padding:2px 5px;left: 0px !important;font-size:12px;overflow:hidden !important;}
+div.jbox .jbox-content-loading{background-color:#FFFFFF;position: absolute;z-index: 99;left: 0px;right: 0px;top: 35px;bottom: 0px;}
+div.jbox .jbox-content-loading-image{background:url(images/jbox-content-loading.gif) no-repeat bottom center;}
+/* button-panel */
+div.jbox .jbox-button-panel{background-color: #F9F8F8;padding:5px 0 !important; height: auto !important;}
+div.jbox .jbox-bottom-text{text-indent:10px;color:#444444;}
+div.jbox .jbox-button{background-color:#0e90d2;border:none;color:#FFFFFF;margin:0 10px;padding:0 15px !important;height:30px;cursor:pointer;font-family: '微软雅黑';font-size: 14px;}
+div.jbox .jbox-button-hover{background-color:#1BA0CF;}
+div.jbox .jbox-button-active{background-position:0px -40px;}
+div.jbox-warning .jbox .jbox-button-panel{background-color: #FFFFFF;}
+/* tip-color */
+div.jbox .jbox-tip-color{background-color:#FFFFFF;border:none;color:#000000;}
+/* icons */
+div.jbox span.jbox-icon{background:url(images/jbox-icons.png) no-repeat scroll 0 0 transparent;top: 12px !important;}
+div.jbox span.jbox-icon-info {background-position:0 0;}
+div.jbox span.jbox-icon-question {background-position:-36px 0;}
+div.jbox span.jbox-icon-success {background-position:-72px 0;}
+div.jbox span.jbox-icon-warning {background-position:-108px 0;}
+div.jbox span.jbox-icon-error {background-position:-144px 0;}
+div.jbox span.jbox-icon-none {display: none; overflow:hidden;}
+div.jbox span.jbox-icon-loading {background:url(images/jbox-loading.gif) no-repeat scroll 0 0 transparent;}

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.system.SystemRoleDao">
+	<resultMap id="BaseResultMap" type="java.util.Map">
+		<id column="ROLE_ID" property="roleId" />
+		<result column="ROLE_NAME" property="roleName" />
+		<result column="ROLE_STATE" property="roleState" />
+		<result column="ROLE_DESC" property="roleDesc" />
+		<result column="ROLE_CREATE_USER" property="roleCreateUser" />
+		<result column="ROLE_CREATE_DATE" property="roleCreateDate" />
+		<result column="ROLE_UPDATE_USER" property="roleUpdateUser" />
+		<result column="ROLE_UPDATE_DATE" property="roleUpdateDate" />
+
+		<result column="UPDATE_USER" property="updateUser" />
+	</resultMap>
+
+	<!-- 查询公共字段 -->
+	<sql id="Base_Column_List">
+		ROLE_ID, ROLE_NAME, ROLE_STATE, ROLE_DESC,ROLE_CREATE_USER,
+		ROLE_CREATE_DATE,ROLE_UPDATE_USER,ROLE_UPDATE_DATE
+	</sql>
+
+	<!-- 查询所有角色信息 -->
+	<select id="findPageList" parameterType="com.sxgokit.rdf.model.domain.system.SystemRole"
+			resultMap="BaseResultMap">
+		SELECT
+		ROLE.*,
+		ADMIN.LOGIN_NAME UPDATE_USER
+		FROM
+		SYSTEM_ROLE ROLE
+		LEFT JOIN
+		SYSTEM_ADMIN ADMIN
+		ON ROLE.ROLE_UPDATE_USER = ADMIN.ADMIN_ID
+		WHERE 1=1
+		<if test="role.roleName != null and role.roleName != ''">
+			AND ROLE.ROLE_NAME LIKE CONCAT('%',#{role.roleName,jdbcType=VARCHAR},'%')
+		</if>
+		<if test="role.roleState != null">
+			AND ROLE.ROLE_STATE = #{role.roleState,jdbcType=DECIMAL}
+		</if>
+		AND ROLE.ROLE_ID != 1
+		ORDER BY ROLE_ID ASC
+	</select>
+
+	<!-- 根据主键查询角色信息 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+			parameterType="java.lang.Integer">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		SYSTEM_ROLE
+		WHERE
+		ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</select>
+
+	<!-- 根据主键删除角色信息 -->
+	<delete id="deleteByPrimaryKey" parameterType="Integer">
+		DELETE
+		FROM
+		SYSTEM_ROLE
+		WHERE
+		ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</delete>
+
+	<!-- 添加角色 -->
+	<insert id="insertSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemRole">
+		INSERT INTO SYSTEM_ROLE
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">
+				ROLE_ID,
+			</if>
+			<if test="roleName != null">
+				ROLE_NAME,
+			</if>
+			<if test="roleState != null">
+				ROLE_STATE,
+			</if>
+			<if test="roleDesc != null">
+				ROLE_DESC,
+			</if>
+			<if test="roleCreateUser != null">
+				ROLE_CREATE_USER,
+			</if>
+			<if test="roleCreateDate != null">
+				ROLE_CREATE_DATE,
+			</if>
+			<if test="roleUpdateUser != null">
+				ROLE_UPDATE_USER,
+			</if>
+			<if test="roleUpdateDate != null">
+				ROLE_UPDATE_DATE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="roleId != null">
+				#{roleId,jdbcType=DECIMAL},
+			</if>
+			<if test="roleName != null">
+				#{roleName,jdbcType=VARCHAR},
+			</if>
+			<if test="roleState != null">
+				#{roleState,jdbcType=DECIMAL},
+			</if>
+			<if test="roleDesc != null">
+				#{roleDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="roleCreateUser != null">
+				#{roleCreateUser,jdbcType=DECIMAL},
+			</if>
+			<if test="roleCreateDate != null">
+				#{roleCreateDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="roleUpdateUser != null">
+				#{roleUpdateUser,jdbcType=DECIMAL},
+			</if>
+			<if test="roleUpdateDate != null">
+				#{roleUpdateDate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 修改角色信息 -->
+	<update id="updateSelective" parameterType="com.sxgokit.rdf.model.domain.system.SystemRole">
+		UPDATE SYSTEM_ROLE
+		<set>
+			<if test="roleName != null">
+				ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+			</if>
+			<if test="roleState != null">
+				ROLE_STATE = #{roleState,jdbcType=DECIMAL},
+			</if>
+			<if test="roleDesc != null">
+				ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="roleCreateUser != null">
+				ROLE_CREATE_USER = #{roleCreateUser,jdbcType=DECIMAL},
+			</if>
+			<if test="roleCreateDate != null">
+				ROLE_CREATE_DATE = #{roleCreateDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="roleUpdateUser != null">
+				ROLE_UPDATE_USER = #{roleUpdateUser,jdbcType=DECIMAL},
+			</if>
+			<if test="roleUpdateDate != null">
+				ROLE_UPDATE_DATE = #{roleUpdateDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		WHERE ROLE_ID = #{roleId,jdbcType=DECIMAL}
+	</update>
+
+	<!-- 查询启用中的角色 -->
+	<select id="findUsingList" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		SYSTEM_ROLE
+		WHERE
+		ROLE_STATE = 0
+		ORDER BY ROLE_ID ASC
+	</select>
+
+	<select id="findById" resultType="com.sxgokit.rdf.model.domain.system.SystemRole" parameterType="java.lang.Integer">
+		SELECT
+		SP.*
+		FROM
+		SYSTEM_ROLE SP
+		WHERE SP.ROLE_ID = #{roleIds}
+	</select>
+</mapper>

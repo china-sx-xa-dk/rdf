@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxgokit.rdf.mapper.system.SysConfigDao">
+
+    <resultMap id="BaseResultMap" type="com.sxgokit.rdf.model.vo.system.SysConfigVo" >
+        <result column="config_id" property="configId" />
+        <result column="config_key" property="configKey" />
+        <result column="config_value" property="configValue" />
+        <result column="remarks" property="remarks" />
+        <result column="sort_num" property="sortNum" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                `config_id`,
+                `config_key`,
+                `config_value`,
+                `remarks`,
+                `sort_num`
+    </sql>
+
+
+    <select id="findPageList" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.condition.system.SysConfigCondition">
+        SELECT <include refid="Base_Column_List" />
+        FROM sys_config c
+        WHERE 1=1
+        <if test="condition.configId != null">
+            and c.config_id = #{condition.configId,jdbcType=DECIMAL}
+        </if>
+        <if test="condition.configKey != null and '' !=condition.configKey">
+            and c.config_key LIKE CONCAT('%', #{condition.configKey,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.configValue != null and '' !=condition.configValue">
+            and c.config_value LIKE CONCAT('%', #{condition.configValue,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.remarks != null and '' !=condition.remarks">
+            and c.remarks LIKE CONCAT('%', #{condition.remarks,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="condition.sortNum != null">
+            and c.sort_num = #{condition.sortNum,jdbcType=DECIMAL}
+        </if>
+        Order BY sort_num
+    </select>
+
+
+    <!-- 根据主键查询系统配置 -->
+    <select id="selectByConfigId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sys_config c
+        WHERE c.config_id = #{configId}
+    </select>
+
+    <!-- 添加系统配置 -->
+    <insert id="insertSysConfig" parameterType="com.sxgokit.rdf.model.domain.system.SysConfigModel">
+        INSERT INTO sys_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysConfigModel.configId != null">
+                config_id,
+            </if>
+            <if test="sysConfigModel.configKey != null">
+                config_key,
+            </if>
+            <if test="sysConfigModel.configValue != null">
+                config_value,
+            </if>
+            <if test="sysConfigModel.remarks != null">
+                `remarks`,
+            </if>
+            <if test="sysConfigModel.sortNum != null">
+                sort_num,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sysConfigModel.configId != null">
+                #{sysConfigModel.configId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.configKey != null">
+                #{sysConfigModel.configKey,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.configValue != null">
+                #{sysConfigModel.configValue,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.remarks != null">
+                #{sysConfigModel.remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.sortNum != null">
+                #{sysConfigModel.sortNum,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+
+    
+
+    <!-- 修改系统配置 -->
+    <update id="updateSysConfig" parameterType="com.sxgokit.rdf.model.domain.system.SysConfigModel">
+        UPDATE sys_config
+        <set>
+            <if test="sysConfigModel.configKey != null">
+                config_key = #{sysConfigModel.configKey,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.configValue != null">
+                config_value = #{sysConfigModel.configValue,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.remarks != null">
+                `remarks` = #{sysConfigModel.remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sysConfigModel.sortNum != null">
+                sort_num = #{sysConfigModel.sortNum,jdbcType=DECIMAL},
+            </if>
+        </set>
+        WHERE config_id = #{sysConfigModel.configId}
+    </update>
+
+
+</mapper>

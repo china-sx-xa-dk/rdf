@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sxgokit.rdf.mapper.system.SensitiveInfoMapper">
+
+	<resultMap id="BaseResultMap" type="com.sxgokit.rdf.model.vo.system.SensitiveInfoVo">
+        <id property="id" column="id" jdbcType="INTEGER"></id>
+		<result property="sensitiveContent" column="sensitive_content" jdbcType="VARCHAR"></result>
+		<result property="replaceContent" column="replace_content" jdbcType="VARCHAR"></result>
+		<result property="state" column="state" jdbcType="TINYINT"></result>
+		<result property="sortnum" column="sortnum" jdbcType="INTEGER"></result>
+		<result property="delFlag" column="del_flag" jdbcType="TINYINT"></result>
+		<result property="createUserName" column="create_user_name" jdbcType="INTEGER"></result>
+		<result property="createTime" column="create_time" jdbcType="TIMESTAMP"></result>
+		<result property="updateUserName" column="update_user_name" jdbcType="INTEGER"></result>
+		<result property="updateTime" column="update_time" jdbcType="TIMESTAMP"></result>
+		<result property="remarkInt1" column="remark_int1" jdbcType="INTEGER"></result>
+		<result property="remarkInt2" column="remark_int2" jdbcType="INTEGER"></result>
+		<result property="remarkInt3" column="remark_int3" jdbcType="INTEGER"></result>
+		<result property="remarkStr1" column="remark_str1" jdbcType="VARCHAR"></result>
+		<result property="remarkStr2" column="remark_str2" jdbcType="VARCHAR"></result>
+		<result property="remarkStr3" column="remark_str3" jdbcType="VARCHAR"></result>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		g.id,
+		g.sensitive_content,
+		g.replace_content,
+		g.state,
+		g.sortnum,
+		g.del_flag,
+		sys_c.admin_name AS 'create_user_name',
+		g.create_time,
+		sys_u.admin_name AS 'update_user_name',
+		g.update_time,
+		g.remark_int1,
+		g.remark_int2,
+		g.remark_int3,
+		g.remark_str1,
+		g.remark_str2,
+		g.remark_str3
+	</sql>
+
+	<sql id="Base_Sql_Joins">
+		left join system_admin sys_c on sys_c.admin_id = g.create_user
+		left join system_admin sys_u on sys_u.admin_id = g.update_user
+	</sql>
+
+	<select id="findPageList" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.condition.system.SensitiveInfoCondition">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM sensitive_info g
+		<include refid="Base_Sql_Joins"/>
+		WHERE g.del_flag = 0
+		<if test="condition.sensitiveContent != null and condition.sensitiveContent != ''">
+			AND	g.sensitive_content LIKE CONCAT('%', #{condition.sensitiveContent}, '%')
+		</if>
+		<if test="condition.replaceContent != null and condition.replaceContent != ''">
+			AND	g.replace_content LIKE CONCAT('%', #{condition.replaceContent}, '%')
+		</if>
+		<if test="condition.state != null and condition.state != ''">
+			AND	g.state = #{condition.state}
+		</if>
+		<if test="condition.sortnum != null and condition.sortnum != ''">
+			AND	g.sortnum = #{condition.sortnum}
+		</if>
+		<if test="condition.delFlag != null and condition.delFlag != ''">
+			AND	g.del_flag = #{condition.delFlag}
+		</if>
+		<if test="condition.createUser != null and condition.createUser != ''">
+			AND	g.create_user = #{condition.createUser}
+		</if>
+		<if test="condition.createTimeStr != null and condition.createTimeStr != ''">
+			AND	DATE_FORMAT(g.create_time, '%Y-%m-%d') = #{condition.createTimeStr}
+		</if>
+		<if test="condition.updateUser != null and condition.updateUser != ''">
+			AND	g.update_user = #{condition.updateUser}
+		</if>
+		<if test="condition.updateTimeStr != null and condition.updateTimeStr != ''">
+			AND	DATE_FORMAT(g.update_time, '%Y-%m-%d') = #{condition.updateTimeStr}
+		</if>
+		<if test="condition.remarkInt1 != null and condition.remarkInt1 != ''">
+			AND	g.remark_int1 = #{condition.remarkInt1}
+		</if>
+		<if test="condition.remarkInt2 != null and condition.remarkInt2 != ''">
+			AND	g.remark_int2 = #{condition.remarkInt2}
+		</if>
+		<if test="condition.remarkInt3 != null and condition.remarkInt3 != ''">
+			AND	g.remark_int3 = #{condition.remarkInt3}
+		</if>
+		<if test="condition.remarkStr1 != null and condition.remarkStr1 != ''">
+			AND	g.remark_str1 LIKE CONCAT('%', #{condition.remarkStr1}, '%')
+		</if>
+		<if test="condition.remarkStr2 != null and condition.remarkStr2 != ''">
+			AND	g.remark_str2 LIKE CONCAT('%', #{condition.remarkStr2}, '%')
+		</if>
+		<if test="condition.remarkStr3 != null and condition.remarkStr3 != ''">
+			AND	g.remark_str3 LIKE CONCAT('%', #{condition.remarkStr3}, '%')
+		</if>
+	</select>
+
+	<select id="findList" resultMap="BaseResultMap" parameterType="com.sxgokit.rdf.model.condition.system.SensitiveInfoCondition">
+		SELECT
+		<include refid="Base_Column_List"/>
+		FROM sensitive_info g
+		<include refid="Base_Sql_Joins"/>
+		WHERE g.del_flag = 0
+		<if test="condition.sensitiveContent != null and condition.sensitiveContent != ''">
+			AND	g.sensitive_content LIKE CONCAT('%', #{condition.sensitiveContent}, '%')
+		</if>
+		<if test="condition.replaceContent != null and condition.replaceContent != ''">
+			AND	g.replace_content LIKE CONCAT('%', #{condition.replaceContent}, '%')
+		</if>
+		<if test="condition.state != null and condition.state != ''">
+			AND	g.state = #{condition.state}
+		</if>
+		<if test="condition.sortnum != null and condition.sortnum != ''">
+			AND	g.sortnum = #{condition.sortnum}
+		</if>
+		<if test="condition.delFlag != null and condition.delFlag != ''">
+			AND	g.del_flag = #{condition.delFlag}
+		</if>
+		<if test="condition.createUser != null and condition.createUser != ''">
+			AND	g.create_user = #{condition.createUser}
+		</if>
+		<if test="condition.createTimeStr != null and condition.createTimeStr != ''">
+			AND	DATE_FORMAT(g.create_time, '%Y-%m-%d') = #{condition.createTimeStr}
+		</if>
+		<if test="condition.updateUser != null and condition.updateUser != ''">
+			AND	g.update_user = #{condition.updateUser}
+		</if>
+		<if test="condition.updateTimeStr != null and condition.updateTimeStr != ''">
+			AND	DATE_FORMAT(g.update_time, '%Y-%m-%d') = #{condition.updateTimeStr}
+		</if>
+		<if test="condition.remarkInt1 != null and condition.remarkInt1 != ''">
+			AND	g.remark_int1 = #{condition.remarkInt1}
+		</if>
+		<if test="condition.remarkInt2 != null and condition.remarkInt2 != ''">
+			AND	g.remark_int2 = #{condition.remarkInt2}
+		</if>
+		<if test="condition.remarkInt3 != null and condition.remarkInt3 != ''">
+			AND	g.remark_int3 = #{condition.remarkInt3}
+		</if>
+		<if test="condition.remarkStr1 != null and condition.remarkStr1 != ''">
+			AND	g.remark_str1 LIKE CONCAT('%', #{condition.remarkStr1}, '%')
+		</if>
+		<if test="condition.remarkStr2 != null and condition.remarkStr2 != ''">
+			AND	g.remark_str2 LIKE CONCAT('%', #{condition.remarkStr2}, '%')
+		</if>
+		<if test="condition.remarkStr3 != null and condition.remarkStr3 != ''">
+			AND	g.remark_str3 LIKE CONCAT('%', #{condition.remarkStr3}, '%')
+		</if>
+	</select>
+</mapper>

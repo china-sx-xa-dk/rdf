@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxgokit.rdf.mapper.app.AppUserOrgMapper">
+
+    <resultMap id="BaseResultMap" type="com.sxgokit.rdf.model.domain.app.AppUserOrg" >
+        <result column="user_id" property="userId" />
+        <result column="org_id" property="orgId" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `user_id`,
+        `org_id`
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" parameterType="com.sxgokit.rdf.model.domain.app.AppUserOrg">
+        INSERT INTO app_user_org
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != appUserOrg.userId'>
+                `user_id`,
+            </if>
+            <if test ='null != appUserOrg.orgId'>
+                `org_id`
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != appUserOrg.userId'>
+                #{appUserOrg.userId},
+            </if>
+            <if test ='null != appUserOrg.orgId'>
+                #{appUserOrg.orgId}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" parameterType="com.sxgokit.rdf.model.domain.app.AppUserOrg">
+        DELETE FROM app_user_org
+        WHERE
+        `user_id`= #{appUserOrg.userId}
+         and `org_id` =  #{appUserOrg.orgId}
+    </delete>
+
+</mapper>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sxgokit.rdf.mapper.system.SysDictDao">
+
+    <resultMap id="SysDictVo" type="com.sxgokit.rdf.model.vo.system.SysDictVo">
+        <result column="id" property="id"/>
+        <result column="value" property="value"/>
+        <result column="label" property="label"/>
+        <result column="type" property="type" />
+        <result column="description" property="description" />
+        <result column="sort" property="sort" />
+        <result column="parent_id" property="parentId" />
+        <result column="create_by" property="createBy" />
+        <result column="create_date" property="createDate" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_date" property="updateDate" />
+        <result column="remarks" property="remarks" />
+        <result column="del_flag" property="delFlag" />
+        <result column="createByName" property="createByName" />
+        <result column="updateByName" property="updateByName" />
+
+    </resultMap>
+
+    <resultMap id="SysDict" type="com.sxgokit.rdf.model.domain.system.SysDict">
+        <result column="id" property="id"/>
+        <result column="value" property="value"/>
+        <result column="label" property="label"/>
+        <result column="type" property="type" />
+        <result column="description" property="description" />
+        <result column="sort" property="sort" />
+        <result column="parent_id" property="parentId" />
+        <result column="create_by" property="createBy" />
+        <result column="create_date" property="createDate" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_date" property="updateDate" />
+        <result column="remarks" property="remarks" />
+        <result column="del_flag" property="delFlag" />
+
+    </resultMap>
+
+    <!-- 查询公共字段 -->
+    <sql id="Base_Column_List">
+		SD.id, SD.value, SD.label,
+		SD.type, SD.description, SD.sort,
+		SD.parent_id, SD.create_by, SD.create_date,
+		SD.update_by, SD.update_date, SD.remarks,SD.del_flag
+	</sql>
+
+    <!-- 查询数据字典 -->
+    <select id="findPageList" parameterType="com.sxgokit.rdf.model.domain.system.SysDict" resultMap="SysDictVo">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        SAC.LOGIN_NAME createByName,
+        SAU.LOGIN_NAME updateByName
+        FROM sys_dict SD
+        LEFT JOIN system_admin SAC ON SAC.ADMIN_ID = SD.create_by
+        LEFT JOIN system_admin SAU ON SAU.ADMIN_ID = SD.update_by
+        WHERE 1=1
+        <if test="sysDict.value != null and sysDict.value !=''">
+            AND SD.value LIKE CONCAT('%',#{sysDict.value,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="sysDict.label != null and sysDict.label != ''">
+            AND SD.label LIKE CONCAT('%',#{sysDict.label,jdbcType=VARCHAR},'%')
+        </if>
+        <if test="sysDict.type != null  and sysDict.type != '' ">
+            AND SD.type  LIKE CONCAT('%',#{sysDict.type,jdbcType=VARCHAR},'%')
+        </if>
+        AND SD.del_flag = 0
+        ORDER BY SD.type ASC,SD.sort ASC
+    </select>
+
+
+
+    <!-- 物理删除数据字典 -->
+    <update id="deleteByDictId" parameterType="java.lang.Integer">
+        UPDATE sys_dict
+        <set>
+            del_flag = 1,
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据主键查询数据字典 -->
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="SysDictVo">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        SAC.LOGIN_NAME createByName,
+        SAU.LOGIN_NAME updateByName
+        FROM sys_dict SD
+        LEFT JOIN system_admin SAC ON SAC.ADMIN_ID = SD.create_by
+        LEFT JOIN system_admin SAU ON SAU.ADMIN_ID = SD.update_by
+        WHERE id = #{id}
+    </select>
+
+    <!-- 查询数据字典的类型（去重） -->
+    <select id="selectType"  resultType="java.lang.String">
+        SELECT DISTINCT sd.type from sys_dict sd
+    </select>
+
+    <!-- 添加数据字典 -->
+    <insert id="insertSysDict" parameterType="com.sxgokit.rdf.model.domain.system.SysDict">
+        INSERT INTO sys_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sysDict.id != null">
+                id,
+            </if>
+            <if test="sysDict.value != null">
+                `value`,
+            </if>
+            <if test="sysDict.label != null">
+                label,
+            </if>
+            <if test="sysDict.type != null">
+                `type`,
+            </if>
+            <if test="sysDict.description != null">
+                description,
+            </if>
+            <if test="sysDict.sort != null">
+                sort,
+            </if>
+            <if test="sysDict.parentId != null">
+                parent_id,
+            </if>
+            <if test="sysDict.createBy != null">
+                create_by,
+            </if>
+            <if test="sysDict.createDate != null">
+                create_date,
+            </if>
+            <if test="sysDict.updateBy != null">
+                update_by,
+            </if>
+            <if test="sysDict.updateDate != null">
+                update_date,
+            </if>
+            <if test="sysDict.remarks != null">
+                remarks,
+            </if>
+            <if test="sysDict.delFlag != null">
+                del_flag,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sysDict.id != null">
+                #{sysDict.id,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.value != null">
+                #{sysDict.value,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.label != null">
+                #{sysDict.label,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.type != null">
+                #{sysDict.type,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.description != null">
+                #{sysDict.description,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.sort != null">
+                #{sysDict.sort,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.parentId != null">
+               #{sysDict.parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.createBy != null">
+               #{sysDict.createBy,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.createDate != null">
+                #{sysDict.createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sysDict.updateBy != null">
+               #{sysDict.updateBy,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.updateDate != null">
+               #{sysDict.updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sysDict.remarks != null">
+               #{sysDict.remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.delFlag != null">
+               #{sysDict.delFlag,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+
+
+    <!-- 修改数据字典 -->
+    <update id="updateSysDict" parameterType="com.sxgokit.rdf.model.domain.system.SysDict">
+        UPDATE sys_dict
+        <set>
+            <if test="sysDict.value != null">
+                `value` = #{sysDict.value,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.label != null">
+                label = #{sysDict.label,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.type != null">
+                `type` = #{sysDict.type,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.description != null">
+                description = #{sysDict.description,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.sort != null">
+                sort = #{sysDict.sort,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.parentId != null and '' != sysDict.parentId">
+                parent_id = #{sysDict.parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.createBy != null">
+                create_by = #{sysDict.createBy,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.createDate != null">
+                create_date = #{sysDict.createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sysDict.updateBy != null">
+                update_by = #{sysDict.updateBy,jdbcType=DECIMAL},
+            </if>
+            <if test="sysDict.updateDate != null">
+                update_date = #{sysDict.updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sysDict.remarks != null">
+                remarks = #{sysDict.remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="sysDict.delFlag != null and '' != sysDict.delFlag ">
+                del_flag = #{sysDict.delFlag,jdbcType=DECIMAL},
+            </if>
+        </set>
+        WHERE `id` = #{sysDict.id}
+    </update>
+
+    <select id="findAllList" resultMap="SysDict" parameterType="com.sxgokit.rdf.model.domain.system.SysDict" >
+        SELECT
+        <include refid="Base_Column_List"/>,
+        SAC.LOGIN_NAME createByName,
+        SAU.LOGIN_NAME updateByName
+        FROM sys_dict SD
+        LEFT JOIN system_admin SAC ON SAC.ADMIN_ID = SD.create_by
+        LEFT JOIN system_admin SAU ON SAU.ADMIN_ID = SD.update_by
+        WHERE 1=1
+        <if test="sysDict.value != null and sysDict.value !=''">
+            AND SD.value =#{sysDict.value,jdbcType=VARCHAR}
+        </if>
+        <if test="sysDict.label != null and sysDict.label != ''">
+            AND SD.label=#{sysDict.label,jdbcType=VARCHAR}
+        </if>
+        <if test="sysDict.type != null  and sysDict.type != '' ">
+            AND SD.type = #{sysDict.type,jdbcType=VARCHAR}
+        </if>
+        AND SD.del_flag = 0
+        ORDER BY SD.type ASC,SD.sort ASC
+    </select>
+</mapper>
