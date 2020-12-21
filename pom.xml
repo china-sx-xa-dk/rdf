@@ -66,7 +66,7 @@
 		<org.dom4j.version>2.1.1</org.dom4j.version>
 		<org.apache.tika.version>1.21</org.apache.tika.version>
 		<org.apache.xmlbeans.version>2.6.0</org.apache.xmlbeans.version>
-		<com.thoughtworks.xstream.version>1.4.10</com.thoughtworks.xstream.version>
+		<com.thoughtworks.xstream.version>1.4.15</com.thoughtworks.xstream.version>
 	</properties>
 
 	<dependencies>
