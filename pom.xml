@@ -59,7 +59,7 @@
 
 		<!-- Excel处理 -->
 		<easypoi.version>4.1.3</easypoi.version>
-		<org.apache.poi.version>4.1.0</org.apache.poi.version>
+		<org.apache.poi.version>4.1.1</org.apache.poi.version>
 		<net.sourceforge.jexcelapi.version>2.6.12</net.sourceforge.jexcelapi.version>
 
 		<!-- 基于java的内容检测和分析的工具包 xml等文本内容与java对象的相互转换 -->
