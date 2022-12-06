@@ -31,7 +31,7 @@
 		<com.alibab.druid.version>1.1.10</com.alibab.druid.version><!-- 数据库连接池 -->
 		<com.baomidou.mybatisplus.version>3.1.1</com.baomidou.mybatisplus.version><!-- mybatis-plus -->
 		<commons.io.version>2.4</commons.io.version>
-		<commons.net.version>3.6</commons.net.version><!-- 通用网络实用程序和协议实现 -->
+		<commons.net.version>3.9.0</commons.net.version><!-- 通用网络实用程序和协议实现 -->
 		<javax.servlet.version>1.2</javax.servlet.version>
 		<commons.codec.version>1.10</commons.codec.version><!-- 通用简单编码 -->
 		<commons.fileupload.version>1.3.3</commons.fileupload.version><!-- 通用上传 -->
